@@ -1,0 +1,8 @@
+platform :ios, '15.2'
+
+target 'movieApp' do
+  use_frameworks!
+
+pod 'Alamofire', '~> 5.5'
+
+end
