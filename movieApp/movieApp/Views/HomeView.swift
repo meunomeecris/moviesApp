@@ -6,19 +6,18 @@
 //
 
 import SwiftUI
-import Alamofire
+
 
 struct HomeView: View{
-    var movieService = MovieService()
-    @State var listOfMovies = [Movie]()
-    
+    @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
     var body: some View {
-        Text("Don't stress, do your best")
+        List(viewModel.movies){ movie in //DataBinding
+            Text(movie.title)
+        }.onAppear {
+            viewModel.getNowPlaying()
+        }
     }
 }
-
-
-
 
 
 

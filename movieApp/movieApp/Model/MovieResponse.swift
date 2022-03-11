@@ -13,10 +13,12 @@ import Foundation
 struct MovieResponse: Codable {
     let page: Int
     let movies: [Movie]
-    let totalPages, totalResults: Int
+    let totalPages: Int
+    let totalResults: Int
 
     enum CodingKeys: String, CodingKey {
-        case page, movies
+        case page
+        case movies
         case totalPages = "total_pages"
         case totalResults = "total_results"
     }
@@ -25,13 +27,15 @@ struct MovieResponse: Codable {
 
 
 // MARK: - Result
-struct Movie: Codable {
+struct Movie: Codable, Identifiable {
     let adult: Bool
     let backdropPath: String
     let id: Int
-    let originalTitle, overview: String
+    let originalTitle: String
+    let overview: String
     let popularity: Double
-    let posterPath, releaseDate, title: String
+    let posterPath, releaseDate: String
+    let title: String
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
