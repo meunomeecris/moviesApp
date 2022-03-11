@@ -6,19 +6,24 @@
 //
 
 import SwiftUI
+import Alamofire
 
-struct ContentView: View {
+struct HomeView: View{
+    var movieService = MovieService()
+    @State var listOfMovies = [Movie]()
     
     var body: some View {
-        Text("Test")
-            .padding()
-            .background(Color.green)
+        Text("Don't stress, do your best")
     }
 }
 
 
+
+
+
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeView()
     }
 }

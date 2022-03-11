@@ -15,19 +15,32 @@ class MovieService {
     private let apiKey: String = "4612d030c306c0e9b6e7ba7c40a2eb87"
     
     
-    func nowPlaying(completion: (MovieResponse?, Error?) -> Void ) {     //completion é uma função executada dentro de outra função
-       
-        var queryParameters: Parameters = ["api_key": apiKey]  //definição do método
-        var completeURL: String = "\(baseURL)/movie/now_playing"
+    func getNowPlaying() { //completion é uma função executada dentro de outra função
         
-        AF.request(completeURL, method: .get, parameters: queryParameters).responseDecodable {response: DataResponse<MovieResponse> in
+        let queryParameters: Parameters = ["api_key": apiKey]  //definição do método
+        let completeURL: String = "\(baseURL)/movie/now_playing"
+        
+        
+        let request =  AF.request(completeURL, method: .get, parameters: queryParameters) //lugar na internet que vou buscar os dados
             
-            switch response {
-            case .success:
-                completion(response.result, nil)
-            case .error(let error):
-                completion(nil, error)
+        request.responseDecodable { (response: DataResponse<MovieResponse, AFError>) in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+               print("Something went wrong \(error)")
             }
         }
     }
 }
+
+
+// func getNowPlaying(completion: @escaping (MovieResponse?, Error?) -> Void )
+
+//        AF.request(completeURL, method: .get, parameters: queryParameters).responseDecodable {response: DataResponse<MovieResponse> in
+//        switch response {
+//        case .success:
+//            completion(response.result, nil)
+//        case .error(let error):
+//            completion(response.result, nil)
+//            }
