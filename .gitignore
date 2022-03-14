@@ -116,7 +116,7 @@ DerivedData/
 !default.perspectivev3
 
 ## Xcode Patchj
-!*.xcodeproj/xcshareddata/
+##!*.xcodeproj/xcshareddata/
 !*.xcworkspace/xcshareddata/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
@@ -129,7 +129,6 @@ Packages
 .build/
 xcuserdata
 DerivedData/
-*.xcodeproj
 !*.xcworkspace/xcshareddata/swiftpm/
 
 
