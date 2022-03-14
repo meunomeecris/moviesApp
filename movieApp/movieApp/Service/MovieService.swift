@@ -12,18 +12,18 @@ import Alamofire
 class MovieService {
     
     private let baseURL: String  = "https://api.themoviedb.org/3" //a base da URL que não muda
-    private let apiKey: String = "4612d030c306c0e9b6e7ba7c40a2eb87"
+    private let apiKey: String = "4612d030c306c0e9b6e7ba7c40a2eb87" //the API Key
     
     
     func getNowPlaying(completion: @escaping (MovieResponse?, Error?) -> Void) { //completion é uma função executada dentro de outra função
         
         let queryParameters: Parameters = ["api_key": apiKey]  //definição do método
-        let completeURL: String = "\(baseURL)/movie/now_playing"
+        let completeURL: String = "\(baseURL)/movie/now_playing" //end point
         
         
         let request =  AF.request(completeURL, method: .get, parameters: queryParameters) //lugar na internet que vou buscar os dados
         
-        request.responseDecodable { (response: DataResponse<MovieResponse, AFError>) in
+        request.responseDecodable { (response: DataResponse<MovieResponse, AFError>) in //tratando os dados tragos da requisição
             switch response.result {
             case .success(let result):
                 completion(result, nil)
@@ -33,14 +33,17 @@ class MovieService {
         }
     }
 }
-
-
-// func getNowPlaying(completion: @escaping (MovieResponse?, Error?) -> Void )
-
-//        AF.request(completeURL, method: .get, parameters: queryParameters).responseDecodable {response: DataResponse<MovieResponse> in
-//        switch response {
-//        case .success:
-//            completion(response.result, nil)
-//        case .error(let error):
-//            completion(response.result, nil)
-//            }
+//            do {
+//                  let object = try JSONDecoder().decode(MovieResponse.self, from: response.data ?? Data())
+//                    print(object)
+//                } catch let DecodingError.dataCorrupted(context) {
+//                 print("Data corrupted:\(context)")
+//                } catch let DecodingError.keyNotFound(key, context) {
+//                    print("Key not found:\(context)")
+//                } catch let DecodingError.valueNotFound(value, context) {
+//                    print("Value not found:\(context)")
+//                } catch let DecodingError.typeMismatch(type, context) {
+//                    print("Type Mismatch:\(context)")
+//                } catch let error {
+//                    print(error.localizedDescription)
+//                 }

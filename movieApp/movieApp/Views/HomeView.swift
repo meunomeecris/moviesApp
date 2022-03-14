@@ -9,7 +9,8 @@ import SwiftUI
 
 
 struct HomeView: View{
-    @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
+    @ObservedObject var viewModel: HomeViewModel = HomeViewModel() //para consumir os dados da ViewModel
+    
     var body: some View {
         List(viewModel.movies){ movie in //DataBinding
             Text(movie.title)

@@ -5,36 +5,35 @@
 //  Created by Cris Messias on 08/03/22.
 //
 
+
 import Foundation
 
-
-
-// MARK: - MovieResponse
+// MARK: - Welcome
 struct MovieResponse: Codable {
     let page: Int
-    let movies: [Movie]
+    let results: [Movie]
     let totalPages: Int
     let totalResults: Int
 
     enum CodingKeys: String, CodingKey {
         case page
-        case movies
+        case results
         case totalPages = "total_pages"
         case totalResults = "total_results"
     }
 }
 
-
-
 // MARK: - Result
 struct Movie: Codable, Identifiable {
     let adult: Bool
     let backdropPath: String
+    let genreIDS: [Int]
     let id: Int
     let originalTitle: String
     let overview: String
     let popularity: Double
-    let posterPath, releaseDate: String
+    let posterPath: String
+    let releaseDate: String
     let title: String
     let video: Bool
     let voteAverage: Double
@@ -43,14 +42,16 @@ struct Movie: Codable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case adult
         case backdropPath = "backdrop_path"
+        case genreIDS = "genre_ids"
         case id
         case originalTitle = "original_title"
-        case overview, popularity
+        case overview
+        case popularity
         case posterPath = "poster_path"
         case releaseDate = "release_date"
-        case title, video
+        case title
+        case video
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
 }
-
