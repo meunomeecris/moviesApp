@@ -31,19 +31,22 @@ struct HomeView: View{
                                     Color.blue // Acts as a placeholder.
                                 }
                             }
-                            .frame(width: 150, height: 250)
+                            .frame(width: 170, height: 250)
                             .cornerRadius(20)
                             .listRowSeparator(.hidden)
+                            .onTapGesture {
+                                print(movie.title)
+                            }
                             Text(movie.title)
                                 .font(.title3)
                                 .bold()
-                                .listRowSeparator(.hidden)
                                 .lineLimit(1)
+                                .listRowSeparator(.hidden)
                         }
                     }
-                    .padding(20)
+                    .padding(12)
                 }
-                .padding(20)
+                .padding(16)
             }
             .navigationTitle("Now Playing")
         }
