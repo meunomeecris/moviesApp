@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A2927E727DFE0A400E2A83B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2927E627DFE0A400E2A83B /* File.swift */; };
 		8A2D106D27C983CB0002432C /* MovieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D106C27C983CB0002432C /* MovieApp.swift */; };
 		8A2D106F27C983CB0002432C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D106E27C983CB0002432C /* HomeView.swift */; };
 		8A2D107127C983CD0002432C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A2D107027C983CD0002432C /* Assets.xcassets */; };
@@ -35,7 +34,6 @@
 
 /* Begin PBXFileReference section */
 		1FFCE22A9979EFC77C197674 /* Pods_movieApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_movieApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A2927E627DFE0A400E2A83B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		8A2D106927C983CB0002432C /* movieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2D106C27C983CB0002432C /* MovieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApp.swift; sourceTree = "<group>"; };
 		8A2D106E27C983CB0002432C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				8A2D106E27C983CB0002432C /* HomeView.swift */,
-				8A2927E627DFE0A400E2A83B /* File.swift */,
 				8A6A09C927D8BDF800B19B4E /* HomeViewModel.swift */,
 			);
 			path = Views;
@@ -258,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A2D106F27C983CB0002432C /* HomeView.swift in Sources */,
-				8A2927E727DFE0A400E2A83B /* File.swift in Sources */,
 				8A74041827D784AA003DAA46 /* MovieResponse.swift in Sources */,
 				8ABECC5B27C9952E009F0BB7 /* MovieService.swift in Sources */,
 				8A6A09CA27D8BDF800B19B4E /* HomeViewModel.swift in Sources */,

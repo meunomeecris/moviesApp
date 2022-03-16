@@ -38,6 +38,9 @@ struct Movie: Codable, Identifiable {
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
+    var completePosterPath: String { //computed propriet
+        return "https://image.tmdb.org/t/p/original\(posterPath)"
+    }
 
     enum CodingKeys: String, CodingKey {
         case adult

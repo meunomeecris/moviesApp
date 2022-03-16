@@ -17,15 +17,16 @@ class HomeViewModel: ObservableObject { //regra de negócios - comunica com outr
     //@Published - swiftui - acompanhar mudanças
     
     
-    func getNowPlaying() { //função que pega os dados da requisição 
+    func getNowPlaying() { //função que pega os dados da requisição
         movieService.getNowPlaying { movieResponse, error in
             if error != nil {
-                print("Somenting went wrong\(error?.localizedDescription)")
-                return //para o código
+                print("Somenting went wrong\(String(describing: error?.localizedDescription))")
+                return //parar o código
             }
             if let response = movieResponse { // optional unwrapping para saber se tem dados. evitar que o app quebre
-                 self.movies = response.results
+                self.movies = response.results
             }
         }
     }
 }
+

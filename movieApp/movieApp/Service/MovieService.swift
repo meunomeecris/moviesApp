@@ -15,7 +15,7 @@ class MovieService {
     private let apiKey: String = "4612d030c306c0e9b6e7ba7c40a2eb87" //the API Key
     
     
-    func getNowPlaying(completion: @escaping (MovieResponse?, Error?) -> Void) { //completion é uma função executada dentro de outra função
+    func getNowPlaying(completion: @escaping (MovieResponse?, Error?) -> Void) { //completion é uma função executada dentro de outra função. executada depois da requisição
         
         let queryParameters: Parameters = ["api_key": apiKey]  //definição do método
         let completeURL: String = "\(baseURL)/movie/now_playing" //end point
@@ -33,17 +33,3 @@ class MovieService {
         }
     }
 }
-//            do {
-//                  let object = try JSONDecoder().decode(MovieResponse.self, from: response.data ?? Data())
-//                    print(object)
-//                } catch let DecodingError.dataCorrupted(context) {
-//                 print("Data corrupted:\(context)")
-//                } catch let DecodingError.keyNotFound(key, context) {
-//                    print("Key not found:\(context)")
-//                } catch let DecodingError.valueNotFound(value, context) {
-//                    print("Value not found:\(context)")
-//                } catch let DecodingError.typeMismatch(type, context) {
-//                    print("Type Mismatch:\(context)")
-//                } catch let error {
-//                    print(error.localizedDescription)
-//                 }
