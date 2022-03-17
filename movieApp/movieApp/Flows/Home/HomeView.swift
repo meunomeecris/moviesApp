@@ -35,7 +35,7 @@ struct HomeView: View{
                                     }
                                 } //end the AsyncImage
                                 .frame(width: 170, height: 250)
-                                .cornerRadius(20)
+                                .cornerRadius(15)
                                 .listRowSeparator(.hidden)
                                 Text(movie.title)
                                     .font(.title3)
