@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Alamofire
 
 
 struct HomeView: View{
     @ObservedObject var viewModel: HomeViewModel = HomeViewModel() //para consumir os dados da ViewModel
+    
     
     let columns = [
         GridItem(.flexible()),
@@ -21,41 +23,43 @@ struct HomeView: View{
             ScrollView {
                 LazyVGrid(columns: columns) {
                     ForEach(viewModel.movies) { movie in //DataBinding
-                        VStack(alignment: .leading){
-                            AsyncImage(url: URL(string: movie.completePosterPath)) { movie in
-                                if let image = movie.image {
-                                    image.resizable() // Displays the loaded image.
-                                } else if movie.error != nil {
-                                    Color.red // Indicates an error.
-                                } else {
-                                    Color.blue // Acts as a placeholder.
-                                }
-                            }
-                            .frame(width: 170, height: 250)
-                            .cornerRadius(20)
-                            .listRowSeparator(.hidden)
-                            .onTapGesture {
-                                print(movie.title)
-                            }
-                            Text(movie.title)
-                                .font(.title3)
-                                .bold()
-                                .lineLimit(1)
+                        NavigationLink(destination: DetailsView(viewModel: DetailsViewModel(detailsMovie: movie))) { //especificando o que é concreto
+                            VStack(){
+                                AsyncImage(url: URL(string: movie.completePosterPath)) { movie in
+                                    if let image = movie.image {
+                                        image.resizable() // Displays the loaded image.
+                                    } else if movie.error != nil {
+                                        Color.red // Indicates an error.
+                                    } else {
+                                        Color.blue // Acts as a placeholder.
+                                    }
+                                } //end the AsyncImage
+                                .frame(width: 170, height: 250)
+                                .cornerRadius(20)
                                 .listRowSeparator(.hidden)
+                                Text(movie.title)
+                                    .font(.title3)
+                                    .bold()
+                                    .lineLimit(1)
+                                    .listRowSeparator(.hidden)
+                                    .foregroundColor(.black)
+                            } //end the VStack
+                        } //end the NavigationLink
+                        .onTapGesture {
+                            print(movie.title)
                         }
-                    }
+                    } //end the ForEach
                     .padding(12)
-                }
+                } //end LazyVGrid
                 .padding(16)
-            }
+            } //end the ScrollView
             .navigationTitle("Now Playing")
-        }
+        } //end the NavigationView
         .onAppear {
             viewModel.getNowPlaying()
         }
-        
-    }
-}
+    }//end the body view
+}//end the view
 
 
 
