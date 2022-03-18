@@ -43,17 +43,17 @@ struct HomeView: View{
                                     .lineLimit(1)
                                     .listRowSeparator(.hidden)
                                     .foregroundColor(.black)
-                            } //end the VStack
-                        } //end the NavigationLink
+                            }//end the VStack
+                        }//end the NavigationLink
                         .onTapGesture {
                             print(movie.title)
                         }
                     } //end the ForEach
-                    .padding(12)
+                    .padding(16)
                 } //end LazyVGrid
                 .padding(16)
             } //end the ScrollView
-            .navigationTitle("Now Playing")
+            .navigationTitle("Now Playing") //navigationViewTitleColor
         } //end the NavigationView
         .onAppear {
             viewModel.getNowPlaying()

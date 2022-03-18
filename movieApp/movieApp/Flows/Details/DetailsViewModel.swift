@@ -8,6 +8,7 @@
 import Foundation
 
 
+
 //regra de negócios - comunica com outras camadas //permitir observação
 //deve existir sem a View
 //ViewModel pode ser base para várias views
@@ -21,4 +22,6 @@ class DetailsViewModel: ObservableObject {
         self.currentMovie = detailsMovie //self  = deixar de abstrato / tornando independente
     }
 }
+
+
 

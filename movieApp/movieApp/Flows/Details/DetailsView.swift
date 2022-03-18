@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 //View precisa de uma ViewModel
 
@@ -15,19 +16,20 @@ struct DetailsView: View {
     var body: some View {
         imagePoster(viewModel: viewModel)
             .overlay(
-                VStack(alignment: .center){
+                VStack{
                     Text(viewModel.currentMovie.title)
                         .font(.largeTitle)
                         .bold()
                         .padding(6)
                         .foregroundColor(.white)
-                        .padding(.bottom, 20)
+                        .padding(.bottom, 10)
+                        .opacity(1)
                     
                     HStack{
                         HStack{
                             Image(systemName: "hand.thumbsup.circle.fill")
                                 .foregroundColor(Color.white)
-                            Text("\(viewModel.currentMovie.voteAverage)")
+                            Text(String(format: "%.2f", viewModel.currentMovie.voteAverage))
                                 .foregroundColor(Color.white)
                         }
                         HStack{
@@ -37,18 +39,35 @@ struct DetailsView: View {
                                 .foregroundColor(Color.white)
                         }
                     }
+                    .opacity(1)
+                    .padding(.bottom, 16)
                     
-                    .padding(.bottom, 20)
                     Text(viewModel.currentMovie.overview)
-                        .font(.title3)
+                        .font(.body)
                         .foregroundColor(Color.white)
                         .padding()
-                    
-                }//end the ZStack
-                ,alignment: .bottom) //end overlay
+                }//end the VStack
+                    .background(
+                        RoundedCornersShape(corners: [.topLeft, .topRight], radius: 25)
+                    )
+                ,alignment: .bottom)//end overlay
+            .ignoresSafeArea(.all)
     } //end the body View
 } //end the DetailsView 
 
+
+struct RoundedCornersShape: Shape {
+    let corners: UIRectCorner
+    let radius: CGFloat
+
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect,
+                                byRoundingCorners: corners,
+                                cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
+     
+}
 
 
 struct imagePoster: View {
@@ -68,7 +87,7 @@ struct imagePoster: View {
     }
 }
 
-//
+
 //struct DetailsView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        DetailsView(viewModel: DetailsViewModel(detailsMovie: Movie(from:  JSONDecoder() as! Decoder)))//init: reservar espaço na memória // passar vários parametros
