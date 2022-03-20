@@ -12,11 +12,11 @@ import Alamofire
 struct HomeView: View{
     @ObservedObject var viewModel: HomeViewModel = HomeViewModel() //para consumir os dados da ViewModel
     
-    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
     ]
+    
     
     var body: some View {
         NavigationView {
@@ -54,6 +54,10 @@ struct HomeView: View{
                 .padding(16)
             } //end the ScrollView
             .navigationTitle("Now Playing") //navigationViewTitleColor
+            .searchable(text: viewModel.$searchText, prompt: "Search By Movie Name")
+            .onSubmit(of: .search) {
+                viewModel.searchResults()
+            }
         } //end the NavigationView
         .onAppear {
             viewModel.getNowPlaying()

@@ -47,6 +47,9 @@ struct DetailsView: View {
                         .foregroundColor(Color.white)
                         .padding()
                 }//end the VStack
+                    .padding(20)
+                    .padding(.top, 20)
+                    .padding(.bottom, 20)
                     .background(
                         RoundedCornersShape(corners: [.topLeft, .topRight], radius: 25)
                     )

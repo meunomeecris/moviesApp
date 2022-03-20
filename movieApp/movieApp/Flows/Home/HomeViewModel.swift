@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 //principio da responsabilidade
 //ViewModel recebe e entrega dados (output)
 
@@ -15,6 +15,7 @@ class HomeViewModel: ObservableObject { //regra de negócios - comunica com outr
     var movieService: MovieService = MovieService() //especificar o tipo
     @Published var movies: [Movie] = [] //array vazia
     //@Published - swiftui - acompanhar mudanças
+    @State var searchText = ""
     
     
     func getNowPlaying() { //função que pega os dados da requisição
@@ -28,5 +29,19 @@ class HomeViewModel: ObservableObject { //regra de negócios - comunica com outr
             }
         }
     }
+    
+    
+    func searchResults() -> [Movie] {
+        if searchText.isEmpty {
+            return HomeViewModel().movies
+        } else {
+            return HomeViewModel().movies.filter {
+                $0.title
+                .localizedCaseInsensitiveContains(searchText)}
+        }
+    }
 }
+
+
+
 
