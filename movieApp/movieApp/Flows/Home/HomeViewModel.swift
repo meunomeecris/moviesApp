@@ -13,9 +13,8 @@ import SwiftUI
 class HomeViewModel: ObservableObject { //regra de negócios - comunica com outras camadas //permitir observação
     
     var movieService: MovieService = MovieService() //especificar o tipo
-    @Published var movies: [Movie] = [] //array vazia
-    //@Published - swiftui - acompanhar mudanças
-    @State var searchText = ""
+    @Published var movies: [Movie] = [] //array vazia //@Published - swiftui - acompanhar mudanças
+    @Published var searchText = ""
     
     
     func getNowPlaying() { //função que pega os dados da requisição
@@ -32,13 +31,15 @@ class HomeViewModel: ObservableObject { //regra de negócios - comunica com outr
     
     
     func searchResults() -> [Movie] {
-        print("searchText:\(searchText)")
         if searchText.isEmpty {
             return self.movies
         } else {
             return self.movies.filter {
-                $0.title
+                $0.title //anotação reduzida
                 .localizedCaseInsensitiveContains(searchText)}
+//            return self.movies.filter { movie in //anotação completa
+//                movie.title.localizedCaseInsensitiveContains(searchText)
+//            }
         }
     }
 }

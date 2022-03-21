@@ -14,7 +14,7 @@ struct HomeView: View{
     
     let columns = [
         GridItem(.flexible()),
-        GridItem(.flexible()),
+        GridItem(.flexible()),  
     ]
     
     var body: some View {
@@ -54,10 +54,7 @@ struct HomeView: View{
             } //end the ScrollView
             .navigationTitle("Now Playing") //navigationViewTitleColor
         } //end the NavigationView
-        .searchable(text: viewModel.$searchText, prompt: "Search By Movie Name")
-        .onChange(of: viewModel.searchText) { text in
-            print(text)
-        }
+        .searchable(text: $viewModel.searchText, prompt: "Search By Movie Name") //binding bidirecional
         .onAppear {
             viewModel.getNowPlaying()
         }
