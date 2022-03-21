@@ -32,15 +32,17 @@ class HomeViewModel: ObservableObject { //regra de negócios - comunica com outr
     
     
     func searchResults() -> [Movie] {
+        print("searchText:\(searchText)")
         if searchText.isEmpty {
-            return HomeViewModel().movies
+            return self.movies
         } else {
-            return HomeViewModel().movies.filter {
+            return self.movies.filter {
                 $0.title
                 .localizedCaseInsensitiveContains(searchText)}
         }
     }
 }
+
 
 
 

@@ -17,12 +17,11 @@ struct HomeView: View{
         GridItem(.flexible()),
     ]
     
-    
     var body: some View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    ForEach(viewModel.movies) { movie in //DataBinding
+                    ForEach(viewModel.searchResults(), id: \.self) { movie in //DataBinding
                         NavigationLink(destination: DetailsView(viewModel: DetailsViewModel(detailsMovie: movie))) { //especificando o que é concreto
                             VStack(){
                                 AsyncImage(url: URL(string: movie.completePosterPath)) { movie in
@@ -54,11 +53,11 @@ struct HomeView: View{
                 .padding(16)
             } //end the ScrollView
             .navigationTitle("Now Playing") //navigationViewTitleColor
-            .searchable(text: viewModel.$searchText, prompt: "Search By Movie Name")
-            .onSubmit(of: .search) {
-                viewModel.searchResults()
-            }
         } //end the NavigationView
+        .searchable(text: viewModel.$searchText, prompt: "Search By Movie Name")
+        .onChange(of: viewModel.searchText) { text in
+            print(text)
+        }
         .onAppear {
             viewModel.getNowPlaying()
         }
