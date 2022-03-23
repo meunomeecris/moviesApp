@@ -3,11 +3,11 @@ import Foundation
 // MARK: - VideoResponse
 struct VideoResponse: Codable {
     let id: Int
-    let results: [Result]
+    let results: [Video]
 }
 
 // MARK: - Result
-struct Result: Codable {
+struct Video: Codable {
     let iso639_1: String
     let iso3166_1: String
     let name: String

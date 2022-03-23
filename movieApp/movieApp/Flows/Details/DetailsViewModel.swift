@@ -16,12 +16,35 @@ import Foundation
 
 class DetailsViewModel: ObservableObject {
     
-    var videoService: VideoService = VideoService()
-    
+    private var videoService: VideoService = VideoService()
     var currentMovie: Movie
     
     init (detailsMovie: Movie) { //sobrescrever e mudar comportamento do metódo init
         self.currentMovie = detailsMovie //self  = deixar de abstrato / tornando independente
+    }
+    
+    
+    //    viewModel.videoService.getVideo(movieID: viewModel.currentMovie.id) { videoResponse, error in
+    //        let youtubeResults = videoResponse?.results.filter({ result in result.site == "YouTube" })
+    //        let finalYoutubeResult = youtubeResults?.first
+    //        print("https://www.youtube.com/watch?v=\(finalYoutubeResult!.key)")
+    //    }
+    
+    //encapsulamento
+    func getMovieTrailer(_ movie: Movie, completion: @escaping (String) -> Void ) { //call back
+        self.videoService.getVideo(movieID: movie.id) { videoResponse, error in
+            if error != nil {
+                print("Something went wrong \(error?.localizedDescription ?? "")") //nil coalescing
+            }
+            
+            let youtubeResults = videoResponse?.results.filter({ result in result.site == "YouTube" })
+            guard let finalYoutubeResult = youtubeResults?.first else { //filtrar os optionals
+                return
+            }
+            
+            let youtubeAddress: String = "https://www.youtube.com/watch?v=\(finalYoutubeResult.key)"
+            completion(youtubeAddress)
+        }
     }
 }
 

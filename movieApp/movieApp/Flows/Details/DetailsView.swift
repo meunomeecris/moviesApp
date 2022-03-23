@@ -38,10 +38,8 @@ struct DetailsView: View {
                     .padding(.bottom, 16)
                     
                     Button(action: {
-                        viewModel.videoService.getVideo(movieID: viewModel.currentMovie.id) { videoResponse, error in
-                            let youtubeResults = videoResponse?.results.filter({ result in result.site == "YouTube" })
-                            let finalYoutubeResult = youtubeResults?.first
-                            print("https://www.youtube.com/watch?v=\(finalYoutubeResult!.key)")
+                        viewModel.getMovieTrailer(viewModel.currentMovie) {youtubeAddress in
+                            print(youtubeAddress)
                         }
                     }, label: {
                         Text("Trailer")
