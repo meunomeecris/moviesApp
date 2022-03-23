@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 
+//    https://api.themoviedb.org/3/movie/now_playing?api_key=4612d030c306c0e9b6e7ba7c40a2eb87&language=en-US&page=1
 
 class MovieService {
     
@@ -33,3 +34,4 @@ class MovieService {
         }
     }
 }
+

@@ -41,6 +41,9 @@ struct Movie: Codable, Identifiable, Hashable {
     var completePosterPath: String { //computed propriet
         return "https://image.tmdb.org/t/p/original\(posterPath)"
     }
+    var completBackgroundposter: String {
+        return "https://image.tmdb.org/t/p/original\(backdropPath)"
+    }
 
     enum CodingKeys: String, CodingKey {
         case adult
