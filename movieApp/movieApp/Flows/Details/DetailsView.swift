@@ -34,9 +34,18 @@ struct DetailsView: View {
                             Text("\(viewModel.currentMovie.voteCount)")
                                 .multilineTextAlignment(.center)
                         }//end the HStack
-                        
                     }//end the HStack
                     .padding(.bottom, 16)
+                    
+                    Button(action: {
+                        viewModel.videoService.getVideo(movieID: viewModel.currentMovie.id) { videoResponse, error in
+                            let youtubeResults = videoResponse?.results.filter({ result in result.site == "YouTube" })
+                            let finalYoutubeResult = youtubeResults?.first
+                            print("https://www.youtube.com/watch?v=\(finalYoutubeResult!.key)")
+                        }
+                    }, label: {
+                        Text("Trailer")
+                    })
                     
                     Text(viewModel.currentMovie.overview)
                         .font(.body)

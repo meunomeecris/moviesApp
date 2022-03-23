@@ -15,7 +15,9 @@ import Foundation
 //fazer test unitário so com viewModel
 
 class DetailsViewModel: ObservableObject {
-
+    
+    var videoService: VideoService = VideoService()
+    
     var currentMovie: Movie
     
     init (detailsMovie: Movie) { //sobrescrever e mudar comportamento do metódo init

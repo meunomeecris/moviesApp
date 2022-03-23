@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct VideoView: View {
-    @ObservedObject var viewModel: VideoViewModel = VideoViewModel()
+//    @ObservedObject var viewModel: VideoViewModel = VideoViewModel()
     
     var body: some View {
         Text("Hello, World!")
