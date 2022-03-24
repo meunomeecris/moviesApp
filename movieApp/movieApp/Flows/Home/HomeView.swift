@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Alamofire
+import CoreMedia
 
 
 struct HomeView: View{
@@ -24,24 +25,8 @@ struct HomeView: View{
                     ForEach(viewModel.searchResults(), id: \.self) { movie in //DataBinding
                         NavigationLink(destination: DetailsView(viewModel: DetailsViewModel(detailsMovie: movie))) { //especificando o que é concreto
                             VStack(){
-                                AsyncImage(url: URL(string: movie.completePosterPath)) { movie in
-                                    if let image = movie.image {
-                                        image.resizable() // Displays the loaded image.
-                                    } else if movie.error != nil {
-                                        Color.red // Indicates an error.
-                                    } else {
-                                        Color.blue // Acts as a placeholder.
-                                    }
-                                } //end the AsyncImage
-                                .frame(width: 170, height: 250)
-                                .cornerRadius(15)
-                                .listRowSeparator(.hidden)
-                                Text(movie.title)
-                                    .font(.title3)
-                                    .bold()
-                                    .lineLimit(1)
-                                    .listRowSeparator(.hidden)
-                                    .foregroundColor(.black)
+                                PosterMovie(argumentoURL: "\(movie.completePosterPath)")
+                                TitleHome(title: "\(movie.title)")
                             }//end the VStack
                         }//end the NavigationLink
                         .onTapGesture {
@@ -61,6 +46,39 @@ struct HomeView: View{
     }//end the body view
 }//end the view
 
+struct TitleHome: View{
+    @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
+    var title: String
+    var body: some View {
+        Text(title)
+            .font(.title3)
+            .bold()
+            .lineLimit(1)
+            .listRowSeparator(.hidden)
+            .foregroundColor(.black)
+    }
+}
+
+
+struct PosterMovie: View{
+    @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
+    var argumentoURL: String
+    var body: some View{
+        
+        AsyncImage(url: URL(string: argumentoURL)) { movie in
+            if let image = movie.image {
+                image.resizable() // Displays the loaded image.
+            } else if movie.error != nil {
+                Color.red // Indicates an error.
+            } else {
+                Color.blue // Acts as a placeholder.
+            }
+        } //end the AsyncImage
+        .frame(width: 170, height: 250)
+        .cornerRadius(15)
+        .listRowSeparator(.hidden)
+    }
+}
 
 
 struct ContentView_Previews: PreviewProvider {

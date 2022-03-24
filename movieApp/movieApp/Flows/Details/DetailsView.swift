@@ -7,63 +7,55 @@
 
 import SwiftUI
 import UIKit
+import AVKit
+import AVFoundation
 
 //View precisa de uma ViewModel
 
 struct DetailsView: View {
     @ObservedObject var viewModel: DetailsViewModel  //passar como parametro - não está concreta - sem instancia
+    
+    
     var body: some View {
         ZStack{
-                imagePoster(viewModel: viewModel)
-            .overlay(
-                VStack(alignment: .center){
-                    Text(viewModel.currentMovie.title)
-                        .font(.largeTitle)
-                        .bold()
-                        .padding(.bottom, 8)
-                    
-                    HStack{
+            ImagePoster(viewModel: viewModel)
+                .overlay(
+                    VStack(alignment: .center){
+                        TitleMovie(viewModel: viewModel)
+                        
                         HStack{
-                            Image(systemName: "hand.thumbsup.circle.fill")
-                            Text(String(format: "%.2f", viewModel.currentMovie.voteAverage))
-                                
+                            Average(viewModel: viewModel)
+                            VoteCount(viewModel: viewModel)
                         }//end the HStack
-                    
-                        HStack{
-                            Image(systemName: "suit.heart.fill")
-                            Text("\(viewModel.currentMovie.voteCount)")
-                                .multilineTextAlignment(.center)
-                        }//end the HStack
-                    }//end the HStack
-                    .padding(.bottom, 16)
-                    
-                    Button(action: {
-                        viewModel.getMovieTrailer(viewModel.currentMovie) {youtubeAddress in
-                            print(youtubeAddress)
-                        }
-                    }, label: {
-                        Text("Trailer")
-                    })
-                    
-                    Text(viewModel.currentMovie.overview)
-                        .font(.body)
-                    
-                }//end the VStack
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color.white)
-                    .padding()
-                    .padding(.vertical, 24)
-                    .background(
-                        RoundedCornersShape(corners: [.topLeft, .topRight], radius: 24)
-                    )
-                ,alignment: .bottom)//end overlay
-            .ignoresSafeArea(.all)
+                        .padding(.bottom, 16)
+                        
+                        Button(action: {
+                            viewModel.getMovieTrailer(viewModel.currentMovie) { youtubeAddress in
+                                print(youtubeAddress)
+                            }
+                        }, label: {
+                            Text("Trailer")
+                        })
+                        
+                        Text(viewModel.currentMovie.overview)
+                            .font(.body)
+                        
+                    }//end the VStack
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color.white)
+                        .padding()
+                        .padding(.vertical, 24)
+                        .background(
+                            RoundedCornersShape(corners: [.topLeft, .topRight], radius: 24)
+                        )
+                    ,alignment: .bottom)//end overlay
+                .ignoresSafeArea(.all)
         } //end the ZStack
     } //end the body View
 } //end the DetailsView 
 
 
-struct imagePoster: View {
+struct ImagePoster: View {
     @ObservedObject var viewModel: DetailsViewModel  //passar como parametro - não está concreta - sem instancia
     
     var body: some View {
@@ -93,10 +85,33 @@ struct RoundedCornersShape: Shape {
     
 }
 
+struct TitleMovie: View {
+    @ObservedObject var viewModel: DetailsViewModel
+    var body: some View {
+        Text(viewModel.currentMovie.title)
+            .font(.largeTitle)
+            .bold()
+            .padding(.bottom, 8)
+    }
+}
 
-//struct DetailsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DetailsView(viewModel: DetailsViewModel(detailsMovie: Movie(from:  JSONDecoder() as! Decoder)))//init: reservar espaço na memória // passar vários parametros
-//
-//    }
-//}
+struct Average: View {
+    @ObservedObject var viewModel: DetailsViewModel
+    var body: some View {
+        HStack{
+            Image(systemName: "hand.thumbsup.circle.fill")
+            Text(String(format: "%.2f", viewModel.currentMovie.voteAverage))
+        }
+    }
+}
+
+struct VoteCount: View {
+    @ObservedObject var viewModel: DetailsViewModel
+    var body: some View {
+        HStack{
+            Image(systemName: "suit.heart.fill")
+            Text("\(viewModel.currentMovie.voteCount)")
+        }
+    }
+}
+
