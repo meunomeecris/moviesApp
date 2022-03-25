@@ -55,7 +55,7 @@ struct TitleHome: View{
             .bold()
             .lineLimit(1)
             .listRowSeparator(.hidden)
-            .foregroundColor(.black)
+            .foregroundColor(Color("title"))
     }
 }
 
@@ -84,5 +84,8 @@ struct PosterMovie: View{
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .preferredColorScheme(.light)
+        HomeView()
+            .preferredColorScheme(.dark)
     }
 }

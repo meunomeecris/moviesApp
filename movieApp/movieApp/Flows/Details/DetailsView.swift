@@ -22,27 +22,24 @@ struct DetailsView: View {
                 .overlay(
                     VStack(alignment: .center){
                         TitleMovie(viewModel: viewModel)
-                        
                         HStack{
                             Average(viewModel: viewModel)
                             VoteCount(viewModel: viewModel)
                         }//end the HStack
                         .padding(.bottom, 16)
-                        
                         Button(action: {
                             viewModel.getMovieTrailer(viewModel.currentMovie) { youtubeAddress in
                                 print(youtubeAddress)
                             }
-                        }, label: {
+                        }
+                               , label: {
                             Text("Trailer")
                         })
-                        
                         Text(viewModel.currentMovie.overview)
                             .font(.body)
-                        
                     }//end the VStack
                         .multilineTextAlignment(.center)
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color(.systemGray6))
                         .padding()
                         .padding(.vertical, 24)
                         .background(
@@ -114,4 +111,6 @@ struct VoteCount: View {
         }
     }
 }
+
+
 
