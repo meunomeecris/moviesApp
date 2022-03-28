@@ -7,41 +7,32 @@
 
 import SwiftUI
 import UIKit
-import AVKit
-import AVFoundation
 
 //View precisa de uma ViewModel
 
 struct DetailsView: View {
     @ObservedObject var viewModel: DetailsViewModel  //passar como parametro - não está concreta - sem instancia
-    
-    
+
     var body: some View {
         ZStack{
             ImagePoster(viewModel: viewModel)
                 .overlay(
-                    VStack(alignment: .center){
+                    VStack(){
                         TitleMovie(viewModel: viewModel)
                         HStack{
                             Average(viewModel: viewModel)
                             VoteCount(viewModel: viewModel)
-                        }//end the HStack
-                        .padding(.bottom, 16)
-                        Button(action: {
-                            viewModel.getMovieTrailer(viewModel.currentMovie) { youtubeAddress in
-                                print(youtubeAddress)
-                            }
                         }
-                               , label: {
-                            Text("Trailer")
-                        })
+                        .padding(.bottom, 16)
+                        TrailerButton(viewModel: viewModel)
                         Text(viewModel.currentMovie.overview)
                             .font(.body)
-                    }//end the VStack
+                            .padding(.bottom,24)
+                    }
                         .multilineTextAlignment(.center)
                         .foregroundColor(Color(.systemGray6))
                         .padding()
-                        .padding(.vertical, 24)
+                        .padding(.horizontal, 16)
                         .background(
                             RoundedCornersShape(corners: [.topLeft, .topRight], radius: 24)
                         )
@@ -51,9 +42,9 @@ struct DetailsView: View {
     } //end the body View
 } //end the DetailsView 
 
-
+// MARK: - ImagePoster
 struct ImagePoster: View {
-    @ObservedObject var viewModel: DetailsViewModel  //passar como parametro - não está concreta - sem instancia
+    @ObservedObject var viewModel: DetailsViewModel  
     
     var body: some View {
         AsyncImage(url: URL(string: viewModel.currentMovie.completePosterPath)) { movie in
@@ -68,7 +59,7 @@ struct ImagePoster: View {
     }
 }
 
-
+// MARK: - RoundedCornersShape
 struct RoundedCornersShape: Shape {
     let corners: UIRectCorner
     let radius: CGFloat
@@ -79,9 +70,9 @@ struct RoundedCornersShape: Shape {
                                 cornerRadii: CGSize(width: radius, height: radius))
         return Path(path.cgPath)
     }
-    
 }
 
+// MARK: - TitleMovie
 struct TitleMovie: View {
     @ObservedObject var viewModel: DetailsViewModel
     var body: some View {
@@ -92,6 +83,7 @@ struct TitleMovie: View {
     }
 }
 
+// MARK: - Average
 struct Average: View {
     @ObservedObject var viewModel: DetailsViewModel
     var body: some View {
@@ -102,6 +94,7 @@ struct Average: View {
     }
 }
 
+// MARK: - VoteCount
 struct VoteCount: View {
     @ObservedObject var viewModel: DetailsViewModel
     var body: some View {
@@ -112,5 +105,29 @@ struct VoteCount: View {
     }
 }
 
-
-
+// MARK: - TrailerButton
+struct TrailerButton: View {
+    @ObservedObject var viewModel: DetailsViewModel
+    @State var isShowingPlayerView: Bool = false
+    
+    var body: some View{
+        Button(action: {
+            viewModel.getMovieTrailer(viewModel.currentMovie) { youtubeAddress in
+                viewModel.currentYoutubeAddress = youtubeAddress //
+                isShowingPlayerView.toggle()
+            }
+        }
+               , label: {
+            Text("Trailer")
+                .font(.callout)
+                .foregroundColor(.white)
+                .padding()
+                .background(Color(.systemRed))
+                .cornerRadius(40)
+        })
+            .padding(.bottom,16)
+            .sheet(isPresented: $isShowingPlayerView){
+                YTPlayerView(urlString: viewModel.currentYoutubeAddress)
+            }
+    }
+}

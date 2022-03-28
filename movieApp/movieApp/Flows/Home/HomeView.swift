@@ -46,6 +46,7 @@ struct HomeView: View{
     }//end the body view
 }//end the view
 
+
 struct TitleHome: View{
     @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
     var title: String

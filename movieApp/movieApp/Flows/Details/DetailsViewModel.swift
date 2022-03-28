@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 //regra de negócios - comunica com outras camadas //permitir observação
 //deve existir sem a View
 //ViewModel pode ser base para várias views
@@ -18,6 +16,7 @@ class DetailsViewModel: ObservableObject {
     
     private var videoService: VideoService = VideoService()
     var currentMovie: Movie
+    var currentYoutubeAddress: String = ""
     
     init (detailsMovie: Movie) { //sobrescrever e mudar comportamento do metódo init
         self.currentMovie = detailsMovie //self  = deixar de abstrato / tornando independente
