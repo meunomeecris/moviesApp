@@ -16,7 +16,6 @@
 		8A6A09CA27D8BDF800B19B4E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6A09C927D8BDF800B19B4E /* HomeViewModel.swift */; };
 		8A74041827D784AA003DAA46 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A74041727D784AA003DAA46 /* MovieResponse.swift */; };
 		8AB1F31827D5448200CB0B29 /* Pods_movieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FFCE22A9979EFC77C197674 /* Pods_movieApp.framework */; };
-		8AB1F31927D5448200CB0B29 /* Pods_movieApp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1FFCE22A9979EFC77C197674 /* Pods_movieApp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8AB7424327E4D3620004C5BF /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7424227E4D3620004C5BF /* View+Extensions.swift */; };
 		8ABECC5B27C9952E009F0BB7 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABECC5A27C9952E009F0BB7 /* MovieService.swift */; };
 		8AE5001227EB26C900D6167D /* VideoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5001127EB26C900D6167D /* VideoResponse.swift */; };
@@ -24,20 +23,6 @@
 		8AFE126227EE0F0C0098FB48 /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8AFE126127EE0F0C0098FB48 /* YouTubePlayerKit */; };
 		8AFE126527EE101F0098FB48 /* YTPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFE126427EE101F0098FB48 /* YTPlayerView.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8AB1F31A27D5448200CB0B29 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8AB1F31927D5448200CB0B29 /* Pods_movieApp.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1FFCE22A9979EFC77C197674 /* Pods_movieApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_movieApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,7 +188,6 @@
 				8A2D106627C983CB0002432C /* Frameworks */,
 				8A2D106727C983CB0002432C /* Resources */,
 				9F345766FA16542C136B5260 /* [CP] Embed Pods Frameworks */,
-				8AB1F31A27D5448200CB0B29 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -454,7 +438,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"movieApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 7T93UNM5FF;
+				DEVELOPMENT_TEAM = GGLW8Y2AXF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -462,12 +446,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.meunomeecris.movieApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.movieApp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -484,7 +469,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"movieApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 7T93UNM5FF;
+				DEVELOPMENT_TEAM = GGLW8Y2AXF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -492,12 +477,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.meunomeecris.movieApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.movieApp2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
