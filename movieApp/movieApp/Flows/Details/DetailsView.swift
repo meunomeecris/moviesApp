@@ -141,27 +141,13 @@ struct FavoriteButton: View {
         Button {
             
         } label: {
-            
+            Text("Favorite")
+                .font(.callout)
+                .foregroundColor(.white)
+                .padding()
+                .background(Color(.systemRed))
+                .cornerRadius(40)
         }
-        
-    }
-    
-    var favoriteTrue: some View {
-        Text("Favorite")
-            .font(.callout)
-            .foregroundColor(.white)
-            .padding()
-            .background(Color(.systemGray))
-            .cornerRadius(40)
-    }
-    
-    var favoriteFalse: some View{
-        Text("Favorite")
-            .font(.callout)
-            .foregroundColor(.white)
-            .padding()
-            .background(Color(.systemGreen))
-            .cornerRadius(40)
         
     }
 }
