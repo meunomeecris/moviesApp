@@ -14,20 +14,13 @@ import Foundation
 
 class DetailsViewModel: ObservableObject {
     
-    private var videoService: VideoService = VideoService()
+    private var videoService: VideoServiceType = TheMoviedbVideoService()
     var currentMovie: Movie
     var currentYoutubeAddress: String = ""
     
     init (detailsMovie: Movie) { //sobrescrever e mudar comportamento do metódo init
         self.currentMovie = detailsMovie //self  = deixar de abstrato / tornando independente
     }
-    
-    
-    //    viewModel.videoService.getVideo(movieID: viewModel.currentMovie.id) { videoResponse, error in
-    //        let youtubeResults = videoResponse?.results.filter({ result in result.site == "YouTube" })
-    //        let finalYoutubeResult = youtubeResults?.first
-    //        print("https://www.youtube.com/watch?v=\(finalYoutubeResult!.key)")
-    //    }
     
     //encapsulamento
     func getMovieTrailer(_ movie: Movie, completion: @escaping (String) -> Void ) { //call back
@@ -46,6 +39,12 @@ class DetailsViewModel: ObservableObject {
         }
     }
 }
+
+//    viewModel.videoService.getVideo(movieID: viewModel.currentMovie.id) { videoResponse, error in
+//        let youtubeResults = videoResponse?.results.filter({ result in result.site == "YouTube" })
+//        let finalYoutubeResult = youtubeResults?.first
+//        print("https://www.youtube.com/watch?v=\(finalYoutubeResult!.key)")
+//    }
 
 
 

@@ -24,7 +24,10 @@ struct DetailsView: View {
                             VoteCount(viewModel: viewModel)
                         }
                         .padding(.bottom, 16)
-                        TrailerButton(viewModel: viewModel)
+                        HStack{
+                            TrailerButton(viewModel: viewModel)
+                            FavoriteButton()
+                        }
                         Text(viewModel.currentMovie.overview)
                             .font(.body)
                             .padding(.bottom,24)
@@ -129,5 +132,36 @@ struct TrailerButton: View {
             .sheet(isPresented: $isShowingPlayerView){
                 YTPlayerView(urlString: viewModel.currentYoutubeAddress)
             }
+    }
+}
+
+struct FavoriteButton: View {
+    var body: some View {
+        
+        Button {
+            
+        } label: {
+            
+        }
+        
+    }
+    
+    var favoriteTrue: some View {
+        Text("Favorite")
+            .font(.callout)
+            .foregroundColor(.white)
+            .padding()
+            .background(Color(.systemGray))
+            .cornerRadius(40)
+    }
+    
+    var favoriteFalse: some View{
+        Text("Favorite")
+            .font(.callout)
+            .foregroundColor(.white)
+            .padding()
+            .background(Color(.systemGreen))
+            .cornerRadius(40)
+        
     }
 }
