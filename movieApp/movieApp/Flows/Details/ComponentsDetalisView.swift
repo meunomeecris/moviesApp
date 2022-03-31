@@ -110,17 +110,17 @@ struct TrailerButton: View {
 
 // MARK: - FavoriteButton
 struct FavoriteButton: View {
-    var favoriteProtocols: FavoriteType = UserDefaultsFavoriteService()
+    var userDefaultsFavoriteService: FavoriteType = UserDefaultsFavoriteService()
     @ObservedObject var viewModel: DetailsViewModel
     
     var body: some View {
         
         Button (action: {
-            if favoriteProtocols.isFavorited(movie: viewModel.currentMovie) == false {
-                favoriteProtocols.addToFavorite(movie: viewModel.currentMovie)
-                print("print\(favoriteProtocols.favorites)")
+            if userDefaultsFavoriteService.isFavorited(movie: viewModel.currentMovie) == false {
+                userDefaultsFavoriteService.addToFavorite(movie: viewModel.currentMovie)
+                print("print\(userDefaultsFavoriteService.favorites)")
             } else {
-                favoriteProtocols.removeFromFavorite(movie: viewModel.currentMovie)
+                userDefaultsFavoriteService.removeFromFavorite(movie: viewModel.currentMovie)
                 print("Movies2\(viewModel.currentMovie)")
             }
         }, label: {
