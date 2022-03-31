@@ -9,11 +9,17 @@ import Foundation
 
 // chave-valor
 class UserDefaultsFavoriteService: FavoriteType {
+    
     var favorites: [Movie] = []
+    
     private let favoriteKey: String = "favorite"
     
     func isFavorited(movie: Movie) -> Bool {
-        return false
+        if favorites.contains(movie) {
+            return true
+        } else {
+            return false
+        }
     }
     
     func addToFavorite(movie: Movie) {
@@ -27,10 +33,19 @@ class UserDefaultsFavoriteService: FavoriteType {
     }
     
     func removeFromFavorite(movie: Movie) {
-        
+        do {
+            if let movieIndex = favorites.firstIndex(of: movie) {
+                favorites.remove(at: movieIndex)
+            }
+            let encodedArray = try JSONEncoder().encode(favorites)
+            UserDefaults.standard.set(encodedArray, forKey: favoriteKey)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     func getFavorites() -> [Movie] {
         return favorites
     }
+    
 }
