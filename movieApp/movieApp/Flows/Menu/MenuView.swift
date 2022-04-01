@@ -9,16 +9,16 @@ import SwiftUI
 
 struct MenuView: View {
     var body: some View {
-            TabView{
-                HomeView()
-                    .tabItem() {
-                        Label("Now Playing", systemImage: "film")
-                    }
-                FavoritesView()
-                    .tabItem() {
-                        Label("My Favorites", systemImage: "star")
-                    }
-            }
+        TabView{
+            HomeView()
+                .tabItem() {
+                    Label("Now Playing", systemImage: "film")
+                }
+            FavoritesView()
+                .tabItem() {
+                    Label("My Favorites", systemImage: "star")
+                }
+        }
     }
 }
 

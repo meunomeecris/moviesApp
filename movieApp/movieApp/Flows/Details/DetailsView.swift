@@ -41,8 +41,8 @@ struct DetailsView: View {
                             RoundedCornersShape(corners: [.topLeft, .topRight], radius: 24)
                         )
                     ,alignment: .bottom)//end overlay
-                .ignoresSafeArea(.all)
         } //end the ZStack
+        .ignoresSafeArea(.all)
     } //end the body View
 } //end the DetailsView 
 
