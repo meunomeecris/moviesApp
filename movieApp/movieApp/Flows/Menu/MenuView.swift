@@ -9,21 +9,16 @@ import SwiftUI
 
 struct MenuView: View {
     var body: some View {
-        HStack{
             TabView{
                 HomeView()
                     .tabItem() {
-                        Image(systemName: "film")
-                        Text("Now Playing")
+                        Label("Now Playing", systemImage: "film")
                     }
                 FavoritesView()
                     .tabItem() {
-                        Image(systemName: "star")
-                        Text("My Favorites")
+                        Label("My Favorites", systemImage: "star")
                     }
             }
-        }
-        .foregroundColor(Color(.systemGray))
     }
 }
 

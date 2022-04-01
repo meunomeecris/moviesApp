@@ -39,7 +39,7 @@ class UserDefaultsFavoriteService: FavoriteType {
             }
             let encodedArray = try JSONEncoder().encode(favorites)
             UserDefaults.standard.set(encodedArray, forKey: favoriteKey)
-        } catch {
+        } catch let error {
             print(error.localizedDescription)
         }
     }
@@ -49,11 +49,11 @@ class UserDefaultsFavoriteService: FavoriteType {
             let objectFromDisk = UserDefaults.standard.object(forKey: favoriteKey)
             let decodedArray = try JSONDecoder().decode([Movie].self, from: objectFromDisk as! Data)//typecast
             favorites = decodedArray
-            return
-        } catch  let error {
+
+        } catch let error {
             print(error.localizedDescription)
         }
-     
+        return favorites
     }
     
 }

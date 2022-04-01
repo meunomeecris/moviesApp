@@ -118,10 +118,8 @@ struct FavoriteButton: View {
         Button (action: {
             if userDefaultsFavoriteService.isFavorited(movie: viewModel.currentMovie) == false {
                 userDefaultsFavoriteService.addToFavorite(movie: viewModel.currentMovie)
-                print("print\(userDefaultsFavoriteService.favorites)")
             } else {
                 userDefaultsFavoriteService.removeFromFavorite(movie: viewModel.currentMovie)
-                print("Movies2\(viewModel.currentMovie)")
             }
         }, label: {
             HStack{
