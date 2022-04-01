@@ -17,6 +17,8 @@ class DetailsViewModel: ObservableObject {
     private var videoService: VideoServiceType = TheMoviedbVideoService()
     var currentMovie: Movie
     var currentYoutubeAddress: String = ""
+    var favoriteService: FavoriteType = UserDefaultsFavoriteService()
+    @Published var isFavorite: Bool = false
     
     init (detailsMovie: Movie) { //sobrescrever e mudar comportamento do metódo init
         self.currentMovie = detailsMovie //self  = deixar de abstrato / tornando independente
@@ -38,7 +40,23 @@ class DetailsViewModel: ObservableObject {
             completion(youtubeAddress)
         }
     }
+    
+    func isMovieFavorite(movie: Movie) -> Bool { //evitar metodos ninjas (nao recebe nem envia parametros)
+        let isFav =  favoriteService.isFavorited(movie: movie)
+        self.isFavorite = isFav
+        return isFav
+    }
+    
+    func handleFavorite(movie: Movie) {
+        if self.isMovieFavorite(movie: movie) {
+            favoriteService.removeFromFavorite(movie: movie)
+        } else {
+            favoriteService.addToFavorite(movie: movie)
+        }
+        let _ = isMovieFavorite(movie: currentMovie)
+    }
 }
+
 
 //    viewModel.videoService.getVideo(movieID: viewModel.currentMovie.id) { videoResponse, error in
 //        let youtubeResults = videoResponse?.results.filter({ result in result.site == "YouTube" })

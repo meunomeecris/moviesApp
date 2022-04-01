@@ -110,17 +110,12 @@ struct TrailerButton: View {
 
 // MARK: - FavoriteButton
 struct FavoriteButton: View {
-    var userDefaultsFavoriteService: FavoriteType = UserDefaultsFavoriteService()
     @ObservedObject var viewModel: DetailsViewModel
     
     var body: some View {
         
         Button (action: {
-            if userDefaultsFavoriteService.isFavorited(movie: viewModel.currentMovie) == false {
-                userDefaultsFavoriteService.addToFavorite(movie: viewModel.currentMovie)
-            } else {
-                userDefaultsFavoriteService.removeFromFavorite(movie: viewModel.currentMovie)
-            }
+            viewModel.handleFavorite(movie: viewModel.currentMovie)
         }, label: {
             HStack{
                 Image(systemName: "star")
@@ -130,7 +125,7 @@ struct FavoriteButton: View {
                 .foregroundColor(Color(.systemGray))
                 .padding(10)
                 .padding(.horizontal, 10)
-                .background(Color(.systemGray6))
+                .background(viewModel.isFavorite ? Color(.systemGreen) : Color(.systemGray6))
                 .cornerRadius(40)
         })
     }

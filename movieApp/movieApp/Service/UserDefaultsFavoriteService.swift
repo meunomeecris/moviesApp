@@ -11,8 +11,12 @@ import Foundation
 class UserDefaultsFavoriteService: FavoriteType {
     
     var favorites: [Movie] = []
-    
     private let favoriteKey: String = "favorite"
+    
+    init() { //sobrescrever um metodo  - instanciar carregando a func
+        let _ = self.getFavorites() //ignorar o que retorna
+    }
+    
     
     func isFavorited(movie: Movie) -> Bool {
         if favorites.contains(movie) {
@@ -49,7 +53,6 @@ class UserDefaultsFavoriteService: FavoriteType {
             let objectFromDisk = UserDefaults.standard.object(forKey: favoriteKey)
             let decodedArray = try JSONDecoder().decode([Movie].self, from: objectFromDisk as! Data)//typecast
             favorites = decodedArray
-
         } catch let error {
             print(error.localizedDescription)
         }

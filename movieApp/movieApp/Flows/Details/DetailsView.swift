@@ -43,6 +43,9 @@ struct DetailsView: View {
                     ,alignment: .bottom)//end overlay
         } //end the ZStack
         .ignoresSafeArea(.all)
+        .onAppear{
+           let _ = viewModel.isMovieFavorite(movie: viewModel.currentMovie) 
+        }
     } //end the body View
 } //end the DetailsView 
 
