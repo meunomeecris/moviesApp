@@ -113,7 +113,6 @@ struct FavoriteButton: View {
     @ObservedObject var viewModel: DetailsViewModel
     
     var body: some View {
-        
         Button (action: {
             viewModel.handleFavorite(movie: viewModel.currentMovie)
         }, label: {
@@ -122,7 +121,7 @@ struct FavoriteButton: View {
                 Text("Favorite")
             }
                 .font(.callout)
-                .foregroundColor(Color(.systemGray))
+                .foregroundColor(viewModel.isFavorite ? Color(.white) : Color(.systemGray))
                 .padding(10)
                 .padding(.horizontal, 10)
                 .background(viewModel.isFavorite ? Color(.systemGreen) : Color(.systemGray6))

@@ -24,7 +24,8 @@ class DetailsViewModel: ObservableObject {
         self.currentMovie = detailsMovie //self  = deixar de abstrato / tornando independente
     }
     
-    //encapsulamento
+    
+    // MARK: - Movie trailer
     func getMovieTrailer(_ movie: Movie, completion: @escaping (String) -> Void ) { //call back
         self.videoService.getVideo(movieID: movie.id) { videoResponse, error in
             if error != nil {
@@ -41,6 +42,8 @@ class DetailsViewModel: ObservableObject {
         }
     }
     
+    
+    // MARK: - Favorite movies
     func isMovieFavorite(movie: Movie) -> Bool { //evitar metodos ninjas (nao recebe nem envia parametros)
         let isFav =  favoriteService.isFavorited(movie: movie)
         self.isFavorite = isFav
@@ -56,13 +59,6 @@ class DetailsViewModel: ObservableObject {
         let _ = isMovieFavorite(movie: currentMovie)
     }
 }
-
-
-//    viewModel.videoService.getVideo(movieID: viewModel.currentMovie.id) { videoResponse, error in
-//        let youtubeResults = videoResponse?.results.filter({ result in result.site == "YouTube" })
-//        let finalYoutubeResult = youtubeResults?.first
-//        print("https://www.youtube.com/watch?v=\(finalYoutubeResult!.key)")
-//    }
 
 
 
