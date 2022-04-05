@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class FavoritesViewModel {
+    var favoriteService: FavoriteType = UserDefaultsFavoriteService()
+    
+    
+    func favoriteList() -> [Movie] {
+        let list = favoriteService.getFavorites()
+        return list
+    }
+}
