@@ -6,13 +6,16 @@
 //
 
 import Foundation
+import SwiftUI
 
-class FavoritesViewModel {
+class FavoritesViewModel: ObservableObject {
     var favoriteService: FavoriteType = UserDefaultsFavoriteService()
+    @Published var favoriteList: [Movie] = []
     
     
-    func favoriteList() -> [Movie] {
+    func loadFavorite() {
         let list = favoriteService.getFavorites()
-        return list
+        favoriteList = list
     }
+    
 }

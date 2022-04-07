@@ -50,7 +50,7 @@ class UserDefaultsFavoriteService: FavoriteType {
     
     func getFavorites() -> [Movie] {
         do {
-            let objectFromDisk = UserDefaults.standard.object(forKey: favoriteKey)
+            guard let objectFromDisk = UserDefaults.standard.object(forKey: favoriteKey) else { return [] }
             let decodedArray = try JSONDecoder().decode([Movie].self, from: objectFromDisk as! Data)//typecast
             favorites = decodedArray
         } catch let error {

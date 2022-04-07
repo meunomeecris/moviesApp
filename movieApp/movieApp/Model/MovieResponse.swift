@@ -24,7 +24,7 @@ struct MovieResponse: Codable {
 }
 
 // MARK: - Result
-struct Movie: Codable, Identifiable, Hashable {
+struct Movie: Codable, Identifiable, Hashable, Equatable {
     let adult: Bool
     let backdropPath: String
     let genreIDS: [Int]
@@ -59,5 +59,9 @@ struct Movie: Codable, Identifiable, Hashable {
         case video
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
+    }
+    
+    static func == (lhs: Movie, rhs: Movie) -> Bool {
+        return lhs.id == rhs.id
     }
 }

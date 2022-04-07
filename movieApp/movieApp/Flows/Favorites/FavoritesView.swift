@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FavoritesView: View {
     
-    var viewModel: FavoritesViewModel = FavoritesViewModel()
+    @ObservedObject var viewModel: FavoritesViewModel = FavoritesViewModel()
     
     let columns = [
         GridItem(.flexible()),
@@ -20,7 +20,7 @@ struct FavoritesView: View {
         NavigationView{
             ScrollView{
                 LazyVGrid(columns: columns){
-                    ForEach(viewModel.favoriteList()) { favorite in
+                    ForEach(viewModel.favoriteList) { favorite in
                         VStack{
                             AsyncImage(url: URL(string: favorite.completePosterPath)) { movie in
                                 if let image = movie.image {
@@ -34,12 +34,15 @@ struct FavoritesView: View {
                             .frame(width: 170, height: 250)
                             .cornerRadius(15)
                             .listRowSeparator(.hidden)
-                            //                        Text("\(viewModel.favoriteService.favorites)")
+                            Text(favorite.title)
                         }
                     }
                 }
                 .navigationTitle("My Favorites")
             }
+        }
+        .onAppear{
+            viewModel.loadFavorite()
         }
     }
 }

@@ -44,14 +44,14 @@ class DetailsViewModel: ObservableObject {
     
     
     // MARK: - Favorite movies
-    func isMovieFavorite(movie: Movie) -> Bool { //evitar metodos ninjas (nao recebe nem envia parametros)
+    func isMovieFavorite(movie: Movie) -> Bool { //evitar metodos ninjas (nao recebe nem envia parametros)//função de classe
         let isFav =  favoriteService.isFavorited(movie: movie)
         self.isFavorite = isFav
         return isFav
     }
     
     func handleFavorite(movie: Movie) {
-        if self.isMovieFavorite(movie: movie) {
+        if self.isMovieFavorite(movie: movie) { 
             favoriteService.removeFromFavorite(movie: movie)
         } else {
             favoriteService.addToFavorite(movie: movie)
