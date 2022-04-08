@@ -17,31 +17,43 @@ struct FavoritesView: View {
     ]
     
     var body: some View {
-        NavigationView{
-            ScrollView{
-                LazyVGrid(columns: columns){
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: columns) {
                     ForEach(viewModel.favoriteList) { favorite in
-                        VStack{
-                            AsyncImage(url: URL(string: favorite.completePosterPath)) { movie in
-                                if let image = movie.image {
-                                    image.resizable() // Displays the loaded image.
-                                } else if movie.error != nil {
-                                    Color.red // Indicates an error.
-                                } else {
-                                    Color.blue // Acts as a placeholder.
+                        NavigationLink(destination: DetailsView(viewModel: DetailsViewModel(detailsMovie: favorite))) {
+                            VStack{
+                                AsyncImage(url: URL(string: favorite.completePosterPath)) { movie in
+                                    if let image = movie.image {
+                                        image.resizable() // Displays the loaded image.
+                                    } else if movie.error != nil {
+                                        Color.red // Indicates an error.
+                                    } else {
+                                        Color.blue // Acts as a placeholder.
+                                    }
                                 }
-                            }
-                            .frame(width: 170, height: 250)
-                            .cornerRadius(15)
-                            .listRowSeparator(.hidden)
-                            Text(favorite.title)
+                                .frame(width: 170, height: 250)
+                                .cornerRadius(15)
+                                .listRowSeparator(.hidden)
+                                Text(favorite.title)
+                                    .font(.title3)
+                                    .bold()
+                                    .lineLimit(1)
+                                    .listRowSeparator(.hidden)
+                                    .foregroundColor(Color("title"))
+                            }//end the VStack
+                        }//end the NavigationLink
+                        .onTapGesture {
+                            print(favorite.title)
                         }
-                    }
-                }
-                .navigationTitle("My Favorites")
-            }
-        }
-        .onAppear{
+                    } //end the ForEach
+                    .padding(16)
+                } //end LazyVGrid
+                .padding(16)
+            } //end the ScrollView
+            .navigationTitle("My Favorites") //navigationViewTitleColor
+        } //end the NavigationView
+        .onAppear {
             viewModel.loadFavorite()
         }
     }
