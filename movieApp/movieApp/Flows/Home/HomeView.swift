@@ -56,7 +56,7 @@ struct TitleHome: View{
             .bold()
             .lineLimit(1)
             .listRowSeparator(.hidden)
-            .foregroundColor(Color("title"))
+            .foregroundColor(Color("DarkMode"))
     }
 }
 

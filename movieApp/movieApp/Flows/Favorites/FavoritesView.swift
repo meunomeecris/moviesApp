@@ -40,7 +40,7 @@ struct FavoritesView: View {
                                     .bold()
                                     .lineLimit(1)
                                     .listRowSeparator(.hidden)
-                                    .foregroundColor(Color("title"))
+                                    .foregroundColor(Color("DarkMode"))
                             }//end the VStack
                         }//end the NavigationLink
                         .onTapGesture {
@@ -62,5 +62,8 @@ struct FavoritesView: View {
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
         FavoritesView()
+            .preferredColorScheme(.dark)
+        FavoritesView()
+            .preferredColorScheme(.light)
     }
 }

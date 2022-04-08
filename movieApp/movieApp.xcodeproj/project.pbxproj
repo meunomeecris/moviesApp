@@ -15,6 +15,7 @@
 		8A2D106F27C983CB0002432C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D106E27C983CB0002432C /* HomeView.swift */; };
 		8A2D107127C983CD0002432C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A2D107027C983CD0002432C /* Assets.xcassets */; };
 		8A2D107427C983CD0002432C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A2D107327C983CD0002432C /* Preview Assets.xcassets */; };
+		8A65CE8C280040F5006B9398 /* TabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 8A65CE8B280040F5006B9398 /* TabBar */; };
 		8A69E44D27F5B63500847DEB /* ComponentsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A69E44C27F5B63500847DEB /* ComponentsDetailsView.swift */; };
 		8A6A09CA27D8BDF800B19B4E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6A09C927D8BDF800B19B4E /* HomeViewModel.swift */; };
 		8A74041827D784AA003DAA46 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A74041727D784AA003DAA46 /* MovieResponse.swift */; };
@@ -63,6 +64,7 @@
 			files = (
 				8AFE126227EE0F0C0098FB48 /* YouTubePlayerKit in Frameworks */,
 				8AB1F31827D5448200CB0B29 /* Pods_movieApp.framework in Frameworks */,
+				8A65CE8C280040F5006B9398 /* TabBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +232,7 @@
 			name = movieApp;
 			packageProductDependencies = (
 				8AFE126127EE0F0C0098FB48 /* YouTubePlayerKit */,
+				8A65CE8B280040F5006B9398 /* TabBar */,
 			);
 			productName = movieApp;
 			productReference = 8A2D106927C983CB0002432C /* movieApp.app */;
@@ -261,6 +264,7 @@
 			mainGroup = 8A2D106027C983CB0002432C;
 			packageReferences = (
 				8AFE126027EE0F0C0098FB48 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
+				8A65CE8A280040F5006B9398 /* XCRemoteSwiftPackageReference "TabBar" */,
 			);
 			productRefGroup = 8A2D106A27C983CB0002432C /* Products */;
 			projectDirPath = "";
@@ -555,6 +559,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8A65CE8A280040F5006B9398 /* XCRemoteSwiftPackageReference "TabBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onl1ner/TabBar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		8AFE126027EE0F0C0098FB48 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SvenTiigi/YouTubePlayerKit.git";
@@ -566,6 +578,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8A65CE8B280040F5006B9398 /* TabBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A65CE8A280040F5006B9398 /* XCRemoteSwiftPackageReference "TabBar" */;
+			productName = TabBar;
+		};
 		8AFE126127EE0F0C0098FB48 /* YouTubePlayerKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8AFE126027EE0F0C0098FB48 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */;

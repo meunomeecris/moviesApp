@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreMedia
 
 struct ComponentsDetailsView: View {
     @ObservedObject var viewModel: DetailsViewModel
@@ -40,7 +41,8 @@ struct RoundedCornersShape: Shape {
     func path(in rect: CGRect) -> Path {
         let path = UIBezierPath(roundedRect: rect,
                                 byRoundingCorners: corners,
-                                cornerRadii: CGSize(width: radius, height: radius))
+                                cornerRadii: CGSize(width: radius, height: radius)
+                                )
         return Path(path.cgPath)
     }
 }
@@ -96,10 +98,10 @@ struct TrailerButton: View {
                 Text("Trailer")
             }
                 .font(.callout)
-                .foregroundColor(.white)
+                .foregroundColor(Color("LightMode"))
                 .padding(10)
                 .padding(.horizontal, 10)
-                .background(Color(.systemBlue))
+                .background(Color("DarkMode"))
                 .cornerRadius(40)
         })
         .sheet(isPresented: $isShowingPlayerView){
