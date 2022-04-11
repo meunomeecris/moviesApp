@@ -9,14 +9,15 @@ import XCTest
 @testable import movieApp
 
 class FavoriteServiceTests: XCTestCase {
-    //override - sobrescrever o método
-    //setUp - antes do Teste Unitário
-    //tearDown - depois do Teste Unitário
-
+    static let testKey: String = "unitTest"
+   
+    override func tearDown() {
+        UserDefaults.standard.removeObject(forKey: FavoriteServiceTests.testKey)
+    }
     
     func testAddFavorite() {
         do {
-            let favoriteService: FavoriteType = UserDefaultsFavoriteService()
+            let favoriteService = UserDefaultsFavoriteService(userDefaultsKey: FavoriteServiceTests.testKey)
             let bundle = Bundle(for: Self.self)
             let data = bundle.loadFromBundle(resourceName: "moviesMock")
             let mockMovies = try JSONDecoder().decode([Movie].self, from: data)
@@ -28,4 +29,13 @@ class FavoriteServiceTests: XCTestCase {
         }
         
     }
+    
+    func testIsFavorited() {
+        
+    }
+    
 }
+
+//override - sobrescrever o método
+//setUp - antes do Teste Unitário
+//tearDown - depois do Teste Unitário

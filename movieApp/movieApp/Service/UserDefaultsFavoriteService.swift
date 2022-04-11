@@ -11,9 +11,10 @@ import Foundation
 class UserDefaultsFavoriteService: FavoriteType {
     
     var favorites: [Movie] = []
-    private let favoriteKey: String = "favorite"
+    private var favoriteKey: String!
     
-    init() { //sobrescrever um metodo  - instanciar carregando a func
+    init(userDefaultsKey: String = "favorite") { //sobrescrever um metodo  - instanciar carregando a func
+        self.favoriteKey = userDefaultsKey
         let _ = self.getFavorites() //ignorar o que retorna
     }
     
