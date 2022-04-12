@@ -49,11 +49,28 @@ class FavoriteServiceTests: XCTestCase {
             let bundle = Bundle(for: Self.self)
             let data = bundle.loadFromBundle(resourceName: "moviesMock")
             let mockMovies = try JSONDecoder().decode([Movie].self, from: data)
+            favoriteService.addToFavorite(movie: mockMovies[2])
             let result = favoriteService.isFavorited(movie: mockMovies.first!)
             XCTAssertEqual(result,  false)
         } catch let error {
             XCTFail("\(error.localizedDescription)")
         }
+    }
+    
+    func testIsRemoved(){
+        do {
+            let favoriteService = UserDefaultsFavoriteService(userDefaultsKey: FavoriteServiceTests.testKey)
+            let bundle = Bundle(for: Self.self)
+            let data = bundle.loadFromBundle(resourceName: "moviesMock")
+            let mockMovies = try JSONDecoder().decode([Movie].self, from: data)
+            favoriteService.addToFavorite(movie: mockMovies.first!)
+            favoriteService.removeFromFavorite(movie: mockMovies.first!)
+            let resultCount = favoriteService.getFavorites().count
+            XCTAssertEqual(resultCount, 0)
+        } catch let error {
+            XCTFail("\(error.localizedDescription)")
+        }
+        
     }
 
     
