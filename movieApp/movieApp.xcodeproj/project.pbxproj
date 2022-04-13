@@ -27,6 +27,9 @@
 		8A8D54DE27F46F2F003665C3 /* FavoriteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D54DD27F46F2F003665C3 /* FavoriteType.swift */; };
 		8AABFA4027F7526400432991 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AABFA3F27F7526400432991 /* FavoritesViewModel.swift */; };
 		8AB1F31827D5448200CB0B29 /* Pods_movieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FFCE22A9979EFC77C197674 /* Pods_movieApp.framework */; };
+		8ABB35A72807652200247306 /* KeychainStorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB35A62807652200247306 /* KeychainStorageType.swift */; };
+		8ABB35AB2807686100247306 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8ABB35AA2807686100247306 /* KeychainSwift */; };
+		8ABB35AD2807688700247306 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB35AC2807688700247306 /* KeychainService.swift */; };
 		8ABECC5B27C9952E009F0BB7 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABECC5A27C9952E009F0BB7 /* MovieService.swift */; };
 		8AC4684D280758B900F2291F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4684C280758B900F2291F /* LoginView.swift */; };
 		8AC4685128075F7A00F2291F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4685028075F7A00F2291F /* LoginViewModel.swift */; };
@@ -69,6 +72,8 @@
 		8A74041727D784AA003DAA46 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
 		8A8D54DD27F46F2F003665C3 /* FavoriteType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteType.swift; sourceTree = "<group>"; };
 		8AABFA3F27F7526400432991 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		8ABB35A62807652200247306 /* KeychainStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorageType.swift; sourceTree = "<group>"; };
+		8ABB35AC2807688700247306 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		8ABECC5A27C9952E009F0BB7 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		8AC4684C280758B900F2291F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8AC4685028075F7A00F2291F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -95,6 +100,7 @@
 			files = (
 				8AFE126227EE0F0C0098FB48 /* YouTubePlayerKit in Frameworks */,
 				8AB1F31827D5448200CB0B29 /* Pods_movieApp.framework in Frameworks */,
+				8ABB35AB2807686100247306 /* KeychainSwift in Frameworks */,
 				8A65CE8C280040F5006B9398 /* TabBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +250,7 @@
 				8AE5001827EB2EDE00D6167D /* VideoService.swift */,
 				8AD1707827F4EA0600CD46F2 /* InMemoryFavoriteService.swift */,
 				8AD1707A27F4EB4200CD46F2 /* UserDefaultsFavoriteService.swift */,
+				8ABB35AC2807688700247306 /* KeychainService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -252,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				8A8D54DD27F46F2F003665C3 /* FavoriteType.swift */,
+				8ABB35A62807652200247306 /* KeychainStorageType.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -329,6 +337,7 @@
 			packageProductDependencies = (
 				8AFE126127EE0F0C0098FB48 /* YouTubePlayerKit */,
 				8A65CE8B280040F5006B9398 /* TabBar */,
+				8ABB35AA2807686100247306 /* KeychainSwift */,
 			);
 			productName = movieApp;
 			productReference = 8A2D106927C983CB0002432C /* movieApp.app */;
@@ -365,6 +374,7 @@
 			packageReferences = (
 				8AFE126027EE0F0C0098FB48 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
 				8A65CE8A280040F5006B9398 /* XCRemoteSwiftPackageReference "TabBar" */,
+				8ABB35A92807686100247306 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 8A2D106A27C983CB0002432C /* Products */;
 			projectDirPath = "";
@@ -455,6 +465,7 @@
 			files = (
 				8A2D106F27C983CB0002432C /* HomeView.swift in Sources */,
 				8AD1707927F4EA0600CD46F2 /* InMemoryFavoriteService.swift in Sources */,
+				8ABB35A72807652200247306 /* KeychainStorageType.swift in Sources */,
 				8AE5001927EB2EDE00D6167D /* VideoService.swift in Sources */,
 				8A12ACC52800D3EC003018C7 /* Bundle+Extensions.swift in Sources */,
 				8A74041827D784AA003DAA46 /* MovieResponse.swift in Sources */,
@@ -467,6 +478,7 @@
 				8A69E44D27F5B63500847DEB /* ComponentsDetailsView.swift in Sources */,
 				8A0BAE1527E22DD0002DD371 /* DetailsViewModel.swift in Sources */,
 				8A1BB8BA27F5C3D300056B3A /* MenuView.swift in Sources */,
+				8ABB35AD2807688700247306 /* KeychainService.swift in Sources */,
 				8A2D106D27C983CB0002432C /* MovieApp.swift in Sources */,
 				8AFE126527EE101F0098FB48 /* YTPlayerView.swift in Sources */,
 				8AD1707B27F4EB4200CD46F2 /* UserDefaultsFavoriteService.swift in Sources */,
@@ -744,6 +756,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		8ABB35A92807686100247306 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		8AFE126027EE0F0C0098FB48 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SvenTiigi/YouTubePlayerKit.git";
@@ -759,6 +779,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8A65CE8A280040F5006B9398 /* XCRemoteSwiftPackageReference "TabBar" */;
 			productName = TabBar;
+		};
+		8ABB35AA2807686100247306 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8ABB35A92807686100247306 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 		8AFE126127EE0F0C0098FB48 /* YouTubePlayerKit */ = {
 			isa = XCSwiftPackageProductDependency;
