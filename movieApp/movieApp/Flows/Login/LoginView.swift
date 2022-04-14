@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-     
-    @State var username: String = ""
-    @State var password: String = ""
+    var viewModel: LoginViewModel = LoginViewModel()
     
     
     var body: some View {
@@ -74,7 +72,8 @@ struct LoginView: View {
                     )
                 }
                 
-            } //End of the VStack
+            }
+            .edgesIgnoringSafeArea(.all)//End of the VStack
         } //End of the ZStack
     } //End of the body
 } //End of the view
