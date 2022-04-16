@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    var viewModel: LoginViewModel = LoginViewModel()
+   @ObservedObject var viewModel: LoginViewModel = LoginViewModel()
     
     
     var body: some View {
@@ -28,7 +28,7 @@ struct LoginView: View {
                         .foregroundColor(Color("DarkMode"))
                         .padding(.leading)
                     Spacer()
-                    TextField("myemail@email.com", text: $username)
+                    TextField("myemail@email.com", text: viewModel.$usernameInput)
                         .frame(height: 54)
                         .padding(.leading)
                         .textInputAutocapitalization(.never)
@@ -43,7 +43,7 @@ struct LoginView: View {
                         .foregroundColor(Color("DarkMode"))
                         .padding(.leading)
                     Spacer()
-                    SecureField("Tap your password", text: $password)
+                    SecureField("Tap your password", text: viewModel.$passwordInput)
                         .frame(width: .infinity, height: 54)
                         .padding(.leading)
                         .textInputAutocapitalization(.never)

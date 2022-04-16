@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Bundle {
+extension Bundle { //A bundle identifies your target — that is, the app that you're building in Swift
     
     func loadFromBundle(resourceName: String, ext: String = "json") -> Data {
         guard let url = self.url(forResource: resourceName, withExtension: ext),
