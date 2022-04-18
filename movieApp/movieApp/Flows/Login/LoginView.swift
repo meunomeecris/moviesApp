@@ -28,13 +28,16 @@ struct LoginView: View {
                         .foregroundColor(Color("DarkMode"))
                         .padding(.leading)
                     Spacer()
-                    TextField("myemail@email.com", text: viewModel.$usernameInput)
+                    TextField("myemail@email.com", text: $viewModel.usernameInput,  onEditingChanged: {_ in
+                        viewModel.validateInputs()
+                    })
                         .frame(height: 54)
                         .padding(.leading)
                         .textInputAutocapitalization(.never)
                         .foregroundColor(Color(.systemGray))
+                        .border(viewModel.usernameValidOutput == ValidationState.valid ? Color.green : Color.red)
                 }
-                .frame(width: .infinity, height: 80)
+                .frame(height: 80)
                 
                 //MARK: - Password Input
                 VStack(alignment: .leading){
@@ -43,13 +46,13 @@ struct LoginView: View {
                         .foregroundColor(Color("DarkMode"))
                         .padding(.leading)
                     Spacer()
-                    SecureField("Tap your password", text: viewModel.$passwordInput)
-                        .frame(width: .infinity, height: 54)
+                    SecureField("Tap your password", text: $viewModel.passwordInput)
+                        .frame(height: 54)
                         .padding(.leading)
                         .textInputAutocapitalization(.never)
                         .foregroundColor(Color(.systemGray))
                 }
-                .frame(width: .infinity, height: 80)
+                .frame(height: 80)
                 .padding(.top, 24)
                 .padding(.bottom, 24)
                 
@@ -66,14 +69,13 @@ struct LoginView: View {
                             .foregroundColor(Color("LightMode"))
                     }
                     .padding()
-                    .frame(maxWidth: .infinity, maxHeight: 93)
+                    .frame(maxHeight: 93)
                     .background(
                         Color("DarkMode")
                     )
                 }
-                
-            }
-            .edgesIgnoringSafeArea(.all)//End of the VStack
+            }//End of the VStack
+            .edgesIgnoringSafeArea(.all)
         } //End of the ZStack
     } //End of the body
 } //End of the view

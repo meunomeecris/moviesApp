@@ -16,10 +16,10 @@ class Validator {
         return regex.matches(email)
     }
     
-    static func validatePassword(password: String, length: Int = 6) -> Bool {
-        return false
-//        if password.isEmpty || length < 6 {
-//            return false
-//        }
+    static func validatePassword(password: String, length: Int = 6) -> Bool { //future add regex
+        if password.isEmpty || password.count < length {
+            return false
+        }
+        return true
     }
 }
