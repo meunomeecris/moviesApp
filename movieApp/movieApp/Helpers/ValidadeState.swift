@@ -1,8 +1,8 @@
 //
-//  ValidationState.swift
+//  ValidadeState.swift
 //  movieApp
 //
-//  Created by Cris Messias on 18/04/22.
+//  Created by Cris Messias on 19/04/22.
 //
 
 import Foundation
