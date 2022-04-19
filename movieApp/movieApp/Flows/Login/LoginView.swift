@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-   @ObservedObject var viewModel: LoginViewModel = LoginViewModel()
+    @ObservedObject var viewModel: LoginViewModel = LoginViewModel()
     
     
     var body: some View {
@@ -31,13 +31,15 @@ struct LoginView: View {
                     TextField("myemail@email.com", text: $viewModel.usernameInput,  onEditingChanged: {_ in
                         viewModel.validateInputs()
                     })
-                        .frame(height: 54)
-                        .padding(.leading)
-                        .textInputAutocapitalization(.never)
-                        .foregroundColor(Color(.systemGray))
-                        .border(viewModel.usernameValidOutput == ValidationState.valid ? Color.green : Color.red)
+                    .frame(height: 54)
+                    .padding(.leading)
+                    .textInputAutocapitalization(.never)
+                    .foregroundColor(Color(.systemGray))
+                    .modifier(TextFieldValidationModifier(validationState: viewModel.usernameValidOutput))
                 }
                 .frame(height: 80)
+                .padding()
+                
                 
                 //MARK: - Password Input
                 VStack(alignment: .leading){
@@ -46,15 +48,15 @@ struct LoginView: View {
                         .foregroundColor(Color("DarkMode"))
                         .padding(.leading)
                     Spacer()
-                    SecureField("Tap your password", text: $viewModel.passwordInput)
-                        .frame(height: 54)
+                    SecureField("Tap your password", text: $viewModel.passwordInput)         .frame(height: 54)
                         .padding(.leading)
                         .textInputAutocapitalization(.never)
                         .foregroundColor(Color(.systemGray))
+                        .modifier(TextFieldValidationModifier(validationState: viewModel.passwordValidOutput))
                 }
                 .frame(height: 80)
-                .padding(.top, 24)
                 .padding(.bottom, 24)
+                .padding()
                 
                 
                 //MARK: - Login Button

@@ -9,24 +9,29 @@ import Foundation
 import SwiftUI
 
 
-class LoginViewModel: ObservableObject{
+class LoginViewModel: ObservableObject {
     
+    //coleto dados da viem
     @Published var usernameInput: String = ""
     @Published var passwordInput: String = ""
     
+    //devolver para view os inputs validadeos
     @Published var usernameValidOutput: ValidationState = ValidationState.initial
-    @State var passwordValidOutput: ValidationState = ValidationState.initial
+    @Published var passwordValidOutput: ValidationState = ValidationState.initial
     
+    //validar o botão se os campos estiverem validados
     @State var isLoginButtonEnabled: Bool = false
     
-    
+    //validar os dados coletados
     func validateInputs() {
-        let isEmailValid = Validator.validateEmail(email: usernameInput)
-        let isPasswordValid = Validator.validatePassword(password: passwordInput)
-        isLoginButtonEnabled = isEmailValid && isPasswordValid
-    
-        usernameValidOutput = ValidationState.fromBool(value:isEmailValid)
-        passwordValidOutput = ValidationState.fromBool(value: isPasswordValid)
+        usernameValidOutput = Validator.validateEmail(email: usernameInput)
+        passwordValidOutput = Validator.validatePassword(password: passwordInput)
+        
+//        if usernameValidOutput && passwordValidOutput == ValidationState.valid {
+//            isLoginButtonEnabled =  true
+//        } else {
+//            isLoginButtonEnabled = false
+//        }
     }
 }
 
