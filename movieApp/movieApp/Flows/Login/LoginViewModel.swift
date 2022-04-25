@@ -11,7 +11,7 @@ import SwiftUI
 
 class LoginViewModel: ObservableObject {
     
-    //coleto dados da viem
+    //coletar dados da view
     @Published var usernameInput: String = ""
     @Published var passwordInput: String = ""
     
@@ -22,7 +22,7 @@ class LoginViewModel: ObservableObject {
     //validar o botão se os campos estiverem validados
     @State var isLoginButtonEnabled: Bool = false
     
-    //validar os dados coletados
+    //validar os dados coletados da view - usando o Validator (regex)
     func validateInputs() {
         usernameValidOutput = Validator.validateEmail(email: usernameInput)
         passwordValidOutput = Validator.validatePassword(password: passwordInput)
