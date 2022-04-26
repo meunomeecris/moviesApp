@@ -1,32 +1,28 @@
 //
-//  AuthenticationSingleton.swift
+//  UserSessionSingleton.swift
 //  movieApp
 //
-//  Created by Cris Messias on 25/04/22.
+//  Created by Cris Messias on 26/04/22.
 //
 
 import Foundation
 
-
-protocol UserSessionType {
+class UserSessionSingleton: UserSessionType {
     
-    var session: UserSession?{
-        get {
-            
-        } set {
-            
-        }
+    func loadUserSession() -> UserSession? {
+        <#code#>
     }
     
-    func isUserLogged() -> Bool
-    func loadUserSession() -> UserSession?
-    func logoutUserSession()
-}
-
-
-
-
-class UserSessionSingleton: UserSessionType {
+    var session: UserSession?
+    
+    func isUserLogged() -> Bool {
+        <#code#>
+    }
+    
+    func logoutUserSession() {
+        <#code#>
+    }
+    
     
     static let shared = UserSessionSingleton()
     

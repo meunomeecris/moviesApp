@@ -14,6 +14,8 @@
 		8A12ACC22800D2CC003018C7 /* moviesMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A12ACC12800D2CC003018C7 /* moviesMock.json */; };
 		8A12ACC52800D3EC003018C7 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12ACC42800D3EC003018C7 /* Bundle+Extensions.swift */; };
 		8A12ACC72800D4F5003018C7 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12ACC42800D3EC003018C7 /* Bundle+Extensions.swift */; };
+		8A17FD69281869AB007D6400 /* UserSessionSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A17FD68281869AB007D6400 /* UserSessionSingleton.swift */; };
+		8A17FD6B28186A1F007D6400 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A17FD6A28186A1F007D6400 /* UserSession.swift */; };
 		8A1802492808B825007493CC /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1802482808B825007493CC /* Validator.swift */; };
 		8A18024B2808BB7F007493CC /* NSRegularExpression+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A18024A2808BB7F007493CC /* NSRegularExpression+Extensions.swift */; };
 		8A18024D2808BCD1007493CC /* ValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A18024C2808BCD1007493CC /* ValidatorTest.swift */; };
@@ -42,6 +44,7 @@
 		8AD1707B27F4EB4200CD46F2 /* UserDefaultsFavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD1707A27F4EB4200CD46F2 /* UserDefaultsFavoriteService.swift */; };
 		8AE5001227EB26C900D6167D /* VideoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5001127EB26C900D6167D /* VideoResponse.swift */; };
 		8AE5001927EB2EDE00D6167D /* VideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5001827EB2EDE00D6167D /* VideoService.swift */; };
+		8AED9AA72818678B00AEBA18 /* UserSessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AED9AA62818678B00AEBA18 /* UserSessionType.swift */; };
 		8AFE126227EE0F0C0098FB48 /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8AFE126127EE0F0C0098FB48 /* YouTubePlayerKit */; };
 		8AFE126527EE101F0098FB48 /* YTPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFE126427EE101F0098FB48 /* YTPlayerView.swift */; };
 /* End PBXBuildFile section */
@@ -65,6 +68,8 @@
 		8A12ACBE2800CF0B003018C7 /* FavoriteServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteServiceTests.swift; sourceTree = "<group>"; };
 		8A12ACC12800D2CC003018C7 /* moviesMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moviesMock.json; sourceTree = "<group>"; };
 		8A12ACC42800D3EC003018C7 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		8A17FD68281869AB007D6400 /* UserSessionSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionSingleton.swift; sourceTree = "<group>"; };
+		8A17FD6A28186A1F007D6400 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		8A1802482808B825007493CC /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		8A18024A2808BB7F007493CC /* NSRegularExpression+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extensions.swift"; sourceTree = "<group>"; };
 		8A18024C2808BCD1007493CC /* ValidatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTest.swift; sourceTree = "<group>"; };
@@ -91,6 +96,7 @@
 		8AD1707A27F4EB4200CD46F2 /* UserDefaultsFavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsFavoriteService.swift; sourceTree = "<group>"; };
 		8AE5001127EB26C900D6167D /* VideoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoResponse.swift; sourceTree = "<group>"; };
 		8AE5001827EB2EDE00D6167D /* VideoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoService.swift; sourceTree = "<group>"; };
+		8AED9AA62818678B00AEBA18 /* UserSessionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionType.swift; sourceTree = "<group>"; };
 		8AFE126427EE101F0098FB48 /* YTPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTPlayerView.swift; sourceTree = "<group>"; };
 		A3CD7C1D8CCC2B5716C066F5 /* Pods-movieApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movieApp.debug.xcconfig"; path = "Target Support Files/Pods-movieApp/Pods-movieApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F208B787C396F22975393F03 /* Pods-movieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movieApp.release.xcconfig"; path = "Target Support Files/Pods-movieApp/Pods-movieApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 				8A1802482808B825007493CC /* Validator.swift */,
 				8A18024A2808BB7F007493CC /* NSRegularExpression+Extensions.swift */,
 				8A9768EB280EBEFA00BEDB94 /* ValidadeState.swift */,
+				8A17FD68281869AB007D6400 /* UserSessionSingleton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -274,6 +281,7 @@
 				8AD1707827F4EA0600CD46F2 /* InMemoryFavoriteService.swift */,
 				8AD1707A27F4EB4200CD46F2 /* UserDefaultsFavoriteService.swift */,
 				8ABB35AC2807688700247306 /* KeychainService.swift */,
+				8A17FD6A28186A1F007D6400 /* UserSession.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -299,6 +307,7 @@
 			children = (
 				8A8D54DD27F46F2F003665C3 /* FavoriteType.swift */,
 				8ABB35A62807652200247306 /* KeychainStorageType.swift */,
+				8AED9AA62818678B00AEBA18 /* UserSessionType.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -505,7 +514,9 @@
 			files = (
 				8A2D106F27C983CB0002432C /* HomeView.swift in Sources */,
 				8AD1707927F4EA0600CD46F2 /* InMemoryFavoriteService.swift in Sources */,
+				8A17FD6B28186A1F007D6400 /* UserSession.swift in Sources */,
 				8ABB35A72807652200247306 /* KeychainStorageType.swift in Sources */,
+				8AED9AA72818678B00AEBA18 /* UserSessionType.swift in Sources */,
 				8A9768F0280ECAFD00BEDB94 /* TextFieldValidationModifier.swift in Sources */,
 				8AE5001927EB2EDE00D6167D /* VideoService.swift in Sources */,
 				8A12ACC52800D3EC003018C7 /* Bundle+Extensions.swift in Sources */,
@@ -517,6 +528,7 @@
 				8AC4685128075F7A00F2291F /* LoginViewModel.swift in Sources */,
 				8AABFA4027F7526400432991 /* FavoritesViewModel.swift in Sources */,
 				8A6A09CA27D8BDF800B19B4E /* HomeViewModel.swift in Sources */,
+				8A17FD69281869AB007D6400 /* UserSessionSingleton.swift in Sources */,
 				8A69E44D27F5B63500847DEB /* ComponentsDetailsView.swift in Sources */,
 				8A9768EC280EBEFA00BEDB94 /* ValidadeState.swift in Sources */,
 				8A0BAE1527E22DD0002DD371 /* DetailsViewModel.swift in Sources */,
