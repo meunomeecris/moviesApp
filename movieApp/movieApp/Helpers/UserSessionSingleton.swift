@@ -7,7 +7,7 @@
 
 import Foundation
 
-class UserSessionSingleton: UserSessionType {
+class UserSessionSingleton: UserSessionType { //gerenciar sessão
     
     func loadUserSession() -> UserSession? {
         <#code#>
