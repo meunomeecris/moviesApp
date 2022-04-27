@@ -11,8 +11,7 @@ import Foundation
 protocol UserSessionType {
         
     func isUserLogged() -> Bool
-    func loadUserSession() -> UserSession?
+    func loadUserSession()
     func logoutUserSession()
     var session: UserSession? { get set }
-    
 }

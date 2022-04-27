@@ -7,28 +7,32 @@
 
 import Foundation
 
-class UserSessionSingleton: UserSessionType { //gerenciar sessão
+class UserSessionSingleton: UserSessionType { //contralar a sessão entre serviços menores
     
-    func loadUserSession() -> UserSession? {
-        <#code#>
-    }
-    
-    var session: UserSession?
-    
-    func isUserLogged() -> Bool {
-        <#code#>
-    }
-    
-    func logoutUserSession() {
-        <#code#>
-    }
-    
+    private let accessTokenService: AccessTokenServiceType
     
     static let shared = UserSessionSingleton()
     
-    private init(){}
+    var session: UserSession?
     
-    func funcName(){
-        //Code Process
+    
+    private init(){
+        self.accessTokenService = AccessTokenService(keychainService: KeychainService())
+        loadUserSession()
+    }
+    
+    func loadUserSession() {
+        let session = accessTokenService.loadAccessToken()
+        self.session = session
+    }
+      
+    func isUserLogged() -> Bool {
+        //Pergunta que retorna true ou false
+        return self.session != nil
+    }
+    
+    func logoutUserSession() {
+        _ = self.accessTokenService.deleteAccessToken()
+        self.session = nil
     }
 }

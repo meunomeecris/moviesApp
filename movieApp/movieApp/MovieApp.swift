@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct MovieAppApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            if UserSessionSingleton.shared.isUserLogged() {
+                MenuView()
+            } else {
+                LoginView()
+            }
         }
     }
 }
