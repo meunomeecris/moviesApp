@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol KeychainStorageType { // Keychain só aceita string
+protocol KeychainStorageType { 
     func saveContent(text: String, key: String) -> Bool
     func loadContent(key: String) -> String?
     func deleteContent(key: String) -> Bool

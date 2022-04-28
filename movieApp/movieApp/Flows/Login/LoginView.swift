@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-     
-    @State var username: String = ""
-    @State var password: String = ""
+    @ObservedObject var viewModel: LoginViewModel = LoginViewModel()
     
     
     var body: some View {
@@ -30,13 +28,18 @@ struct LoginView: View {
                         .foregroundColor(Color("DarkMode"))
                         .padding(.leading)
                     Spacer()
-                    TextField("myemail@email.com", text: $username)
-                        .frame(height: 54)
-                        .padding(.leading)
-                        .textInputAutocapitalization(.never)
-                        .foregroundColor(Color(.systemGray))
+                    TextField("myemail@email.com", text: $viewModel.usernameInput,  onEditingChanged: {_ in
+                        viewModel.validateInputs()
+                    })
+                    .frame(height: 54)
+                    .padding(.leading)
+                    .textInputAutocapitalization(.never)
+                    .foregroundColor(Color(.systemGray))
+                    .modifier(TextFieldValidationModifier(validationState: viewModel.usernameValidOutput))
                 }
-                .frame(width: .infinity, height: 80)
+                .frame(height: 80)
+                .padding()
+                
                 
                 //MARK: - Password Input
                 VStack(alignment: .leading){
@@ -45,15 +48,16 @@ struct LoginView: View {
                         .foregroundColor(Color("DarkMode"))
                         .padding(.leading)
                     Spacer()
-                    SecureField("Tap your password", text: $password)
-                        .frame(width: .infinity, height: 54)
+                    SecureField("Tap your password", text: $viewModel.passwordInput)
+                        .frame(height: 54)
                         .padding(.leading)
                         .textInputAutocapitalization(.never)
                         .foregroundColor(Color(.systemGray))
+                        .modifier(TextFieldValidationModifier(validationState: viewModel.passwordValidOutput))
                 }
-                .frame(width: .infinity, height: 80)
-                .padding(.top, 24)
+                .frame(height: 80)
                 .padding(.bottom, 24)
+                .padding()
                 
                 
                 //MARK: - Login Button
@@ -68,13 +72,13 @@ struct LoginView: View {
                             .foregroundColor(Color("LightMode"))
                     }
                     .padding()
-                    .frame(maxWidth: .infinity, maxHeight: 93)
+                    .frame(maxHeight: 93)
                     .background(
                         Color("DarkMode")
                     )
                 }
-                
-            } //End of the VStack
+            }//End of the VStack
+            .edgesIgnoringSafeArea(.all)
         } //End of the ZStack
     } //End of the body
 } //End of the view

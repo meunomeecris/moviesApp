@@ -8,7 +8,7 @@
 import Foundation
 import KeychainSwift
 
-class KeychainService: KeychainStorageType {
+class KeychainService: KeychainStorageType { //security storage
     
     private let keychain: KeychainSwift = KeychainSwift()
     
