@@ -13,13 +13,23 @@ class ValidatorTest: XCTestCase {
     func testEmailValidatorSuccess() {
         let email = "cris.dias@gmail.com"
         let result = Validator.validateEmail(email: email)
-        XCTAssertEqual(result, true)
+        XCTAssertEqual(result, .valid)
     }
     
     func testEmailValidatorError() {
         let email = "cris.diasgmail.com"
         let result = Validator.validateEmail(email: email)
-        XCTAssertEqual(result, false)
+        XCTAssertEqual(result, .invalid)
     }
-
+    
+    func testEmailEmpty() {
+        let email = ""
+        let result =  Validator.validateEmail(email: email)
+        XCTAssertEqual(result, .initial)
+    }
+    
+    
+    //MARK: - Password Validator Test
+    
+    
 }

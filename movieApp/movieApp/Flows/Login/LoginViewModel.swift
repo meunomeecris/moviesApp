@@ -26,12 +26,6 @@ class LoginViewModel: ObservableObject {
     func validateInputs() {
         usernameValidOutput = Validator.validateEmail(email: usernameInput)
         passwordValidOutput = Validator.validatePassword(password: passwordInput)
-        
-//        if usernameValidOutput && passwordValidOutput == ValidationState.valid {
-//            isLoginButtonEnabled =  true
-//        } else {
-//            isLoginButtonEnabled = false
-//        }
     }
 }
 
