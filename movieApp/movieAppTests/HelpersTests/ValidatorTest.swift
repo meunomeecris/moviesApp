@@ -31,5 +31,21 @@ class ValidatorTest: XCTestCase {
     
     //MARK: - Password Validator Test
     
+    func testPasswordSuccess() {
+        let password = "1234567"
+        let result = Validator.validatePassword(password: password)
+        XCTAssertEqual(result, .valid)
+    }
     
+    func testPasswordError() {
+        let password = "1234"
+        let result =  Validator.validatePassword(password: password)
+        XCTAssertEqual(result, .invalid)
+    }
+    
+    func testPasswordEmpty() {
+        let password = ""
+        let result = Validator.validatePassword(password: password)
+        XCTAssertEqual(result, .initial)
+    }
 }

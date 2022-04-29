@@ -10,9 +10,7 @@ import Foundation
 class UserSessionSingleton: UserSessionType { //contralar a sessão entre serviços menores
     
     private let accessTokenService: AccessTokenServiceType
-    
     static let shared = UserSessionSingleton()
-    
     var session: UserSession?
     
     
