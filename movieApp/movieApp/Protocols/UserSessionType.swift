@@ -8,9 +8,9 @@
 import Foundation
 
 
-protocol UserSessionType {
+protocol UserSessionType: ObservableObject {
         
-    func isUserLogged() -> Bool
+    var isUserLogged: Bool { get set }
     func loadUserSession()
     func logoutUserSession()
     var session: UserSession? { get set }

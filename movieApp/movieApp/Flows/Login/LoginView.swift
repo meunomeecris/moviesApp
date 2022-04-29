@@ -10,7 +10,6 @@ import SwiftUI
 struct LoginView: View {
     @ObservedObject var viewModel: LoginViewModel = LoginViewModel()
     
-    
     var body: some View {
         ZStack{
             Color(.systemGray6)

@@ -14,7 +14,7 @@
 		8A12ACC22800D2CC003018C7 /* moviesMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A12ACC12800D2CC003018C7 /* moviesMock.json */; };
 		8A12ACC52800D3EC003018C7 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12ACC42800D3EC003018C7 /* Bundle+Extensions.swift */; };
 		8A12ACC72800D4F5003018C7 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12ACC42800D3EC003018C7 /* Bundle+Extensions.swift */; };
-		8A17FD69281869AB007D6400 /* UserSessionSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A17FD68281869AB007D6400 /* UserSessionSingleton.swift */; };
+		8A17FD69281869AB007D6400 /* UserSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A17FD68281869AB007D6400 /* UserSessionController.swift */; };
 		8A17FD6B28186A1F007D6400 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A17FD6A28186A1F007D6400 /* UserSession.swift */; };
 		8A1802492808B825007493CC /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1802482808B825007493CC /* Validator.swift */; };
 		8A18024B2808BB7F007493CC /* NSRegularExpression+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A18024A2808BB7F007493CC /* NSRegularExpression+Extensions.swift */; };
@@ -69,7 +69,7 @@
 		8A12ACBE2800CF0B003018C7 /* FavoriteServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteServiceTests.swift; sourceTree = "<group>"; };
 		8A12ACC12800D2CC003018C7 /* moviesMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moviesMock.json; sourceTree = "<group>"; };
 		8A12ACC42800D3EC003018C7 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
-		8A17FD68281869AB007D6400 /* UserSessionSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionSingleton.swift; sourceTree = "<group>"; };
+		8A17FD68281869AB007D6400 /* UserSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionController.swift; sourceTree = "<group>"; };
 		8A17FD6A28186A1F007D6400 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		8A1802482808B825007493CC /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		8A18024A2808BB7F007493CC /* NSRegularExpression+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extensions.swift"; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 				8A1802482808B825007493CC /* Validator.swift */,
 				8A18024A2808BB7F007493CC /* NSRegularExpression+Extensions.swift */,
 				8A9768EB280EBEFA00BEDB94 /* ValidadeState.swift */,
-				8A17FD68281869AB007D6400 /* UserSessionSingleton.swift */,
+				8A17FD68281869AB007D6400 /* UserSessionController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -532,7 +532,7 @@
 				8AC4685128075F7A00F2291F /* LoginViewModel.swift in Sources */,
 				8AABFA4027F7526400432991 /* FavoritesViewModel.swift in Sources */,
 				8A6A09CA27D8BDF800B19B4E /* HomeViewModel.swift in Sources */,
-				8A17FD69281869AB007D6400 /* UserSessionSingleton.swift in Sources */,
+				8A17FD69281869AB007D6400 /* UserSessionController.swift in Sources */,
 				8A69E44D27F5B63500847DEB /* ComponentsDetailsView.swift in Sources */,
 				8A9768EC280EBEFA00BEDB94 /* ValidadeState.swift in Sources */,
 				8A0BAE1527E22DD0002DD371 /* DetailsViewModel.swift in Sources */,
