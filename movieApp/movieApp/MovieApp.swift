@@ -9,15 +9,24 @@ import SwiftUI
 
 @main
 struct MovieAppApp: App {
-    @EnvironmentObject var userSessionController: UserSessionController = UserSessionController()
+    @StateObject var sessionController: UserSessionController = UserSessionController()
     
     var body: some Scene {
         WindowGroup {
-            if userSessionController.isUserLogged {
-                MenuView()
-            } else {
-                LoginView()
-            }
+            AppStateSwitcher()
+                .environmentObject(sessionController)
+        }
+    }
+}
+
+
+struct AppStateSwitcher: View {
+    @EnvironmentObject var userSessionController: UserSessionController
+    var body: some View {
+        if userSessionController.isUserLogged {
+            MenuView()
+        } else {
+            LoginView()
         }
     }
 }

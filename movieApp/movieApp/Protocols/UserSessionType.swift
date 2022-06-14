@@ -13,5 +13,6 @@ protocol UserSessionType: ObservableObject {
     var isUserLogged: Bool { get set }
     func loadUserSession()
     func logoutUserSession()
+    func saveUserSession(_ session: UserSession) -> Bool
     var session: UserSession? { get set }
 }

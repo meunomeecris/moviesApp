@@ -14,6 +14,10 @@ class UserSessionController: UserSessionType, ObservableObject { //contralar a s
     var session: UserSession?
     
     @Published var isUserLogged: Bool = false
+    
+    init(){
+        loadUserSession()
+    }
 
     func loadUserSession() {
         let session = accessTokenService.loadAccessToken()
@@ -24,6 +28,16 @@ class UserSessionController: UserSessionType, ObservableObject { //contralar a s
         _ = self.accessTokenService.deleteAccessToken()
         self.session = nil
     }
+    
+    func saveUserSession(_ session: UserSession) -> Bool {
+        let result = accessTokenService.saveAccessToken(value: session.token)
+        if result {
+            self.session = session
+            setUserLogged(userSession: self.session)
+        }
+        return result
+    }
+    
     
     //MARK: - Private Method
     

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @ObservedObject var viewModel: LoginViewModel = LoginViewModel()
+    @EnvironmentObject var sessionController: UserSessionController
     
     var body: some View {
         ZStack{
@@ -61,7 +62,10 @@ struct LoginView: View {
                 
                 //MARK: - Login Button
                 VStack{
-                    Button(action: {}) {
+                    Button(action: {
+                        let session = viewModel.login()
+                        sessionController.saveUserSession(session)
+                    }) {
                         Text("Login")
                             .bold()
                             .font(.title3)

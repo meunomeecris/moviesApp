@@ -27,6 +27,17 @@ class LoginViewModel: ObservableObject {
         usernameValidOutput = Validator.validateEmail(email: usernameInput)
         passwordValidOutput = Validator.validatePassword(password: passwordInput)
     }
+    
+    func login() -> UserSession{
+        let fakeToken = "\(usernameInput)\(passwordInput)"
+        var hasher =  Hasher()
+        hasher.combine(fakeToken)
+        let hash = hasher.finalize()
+        
+        let userSession = UserSession(token: String(hash))
+        
+        return userSession
+    }
 }
 
 
