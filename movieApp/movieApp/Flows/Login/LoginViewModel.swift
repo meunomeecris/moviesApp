@@ -20,12 +20,32 @@ class LoginViewModel: ObservableObject {
     @Published var passwordValidOutput: ValidationState = ValidationState.initial
     
     //validar o botão se os campos estiverem validados
-    @State var isLoginButtonEnabled: Bool = false
+    @Published var isLoginButtonEnabled: Bool = false
+    
+    // User session controller
+    @EnvironmentObject private var sessionController: UserSessionController
     
     //validar os dados coletados da view - usando o Validator (regex)
     func validateInputs() {
         usernameValidOutput = Validator.validateEmail(email: usernameInput)
         passwordValidOutput = Validator.validatePassword(password: passwordInput)
+        if usernameValidOutput.toBool() && passwordValidOutput.toBool() {
+            isLoginButtonEnabled = true
+        } else {
+            isLoginButtonEnabled = false
+        }
+    }
+    
+    func login() -> UserSession {
+       // The login logic here is mocked just for learning purposes. In the reality we will provide the crendentials to an endpoint and if they are correct, a token will be returned
+        let fakeToken = "\(usernameInput)\(passwordInput)"
+        var hasher = Hasher()
+        hasher.combine(fakeToken)
+        let hash = hasher.finalize()
+        
+        let userSession = UserSession(token: String(hash))
+  
+        return userSession
     }
 }
 

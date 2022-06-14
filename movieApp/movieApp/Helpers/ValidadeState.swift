@@ -12,10 +12,21 @@ enum ValidationState {
     case invalid
     case initial
     
+    // Instantiate from a bool value
     static func fromBool(value: Bool) -> ValidationState {
         if value == true {
            return ValidationState.valid
         }
         return ValidationState.invalid
+    }
+    
+    //Convert from a validation state to bool
+    func toBool() -> Bool {
+        switch self {
+        case .initial, .invalid:
+            return false
+        case .valid:
+            return true
+        }
     }
 }

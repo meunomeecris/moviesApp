@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     @ObservedObject var viewModel: LoginViewModel = LoginViewModel()
+    // We are recovering the instance created by MovieApp struct, in the main funcion
+    @EnvironmentObject var sessionController: UserSessionController
     
     var body: some View {
         ZStack{
@@ -61,7 +63,13 @@ struct LoginView: View {
                 
                 //MARK: - Login Button
                 VStack{
-                    Button(action: {}) {
+                    Button(action: {
+                        // litle swiftui workaround 😅
+                        let session = viewModel.login()
+                        //Saving user session
+                        sessionController.saveUserSession(session)
+                        
+                    }) {
                         Text("Login")
                             .bold()
                             .font(.title3)
@@ -70,6 +78,7 @@ struct LoginView: View {
                         Image(systemName: "arrow.right")
                             .foregroundColor(Color("LightMode"))
                     }
+                    //.disabled(!viewModel.isLoginButtonEnabled)
                     .padding()
                     .frame(maxHeight: 93)
                     .background(
